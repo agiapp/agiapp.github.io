@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,10 +14,10 @@
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
     <link rel="dns-prefetch" href="http://blog.91renb.com">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 设置代码高亮 -->
-    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
     <script type="text/javascript" src="/js/highlight.pack.js"></script>
     <script>
         // highlight
@@ -25,19 +25,19 @@
     </script>
     <!--SEO-->
 
-<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。"/>
+<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。">
 
 
-<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩"/>
+<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩">
 
 
-<meta name="author" content="任波"/>
+<meta name="author" content="任波">
 
 
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
     <!--Title-->
 
 
@@ -155,7 +155,7 @@ $(function() {
 }); 
 </script>
     
-    <meta name="baidu-site-verification" content="FPIfC8aCPl" />
+    <meta name="baidu-site-verification" content="FPIfC8aCPl">
 
     
         <script>
@@ -179,7 +179,7 @@ $(function() {
 
 
     
-    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM" />
+    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM">
 
 
     <!-- 内接入网页在线联系功能 -->
@@ -196,7 +196,7 @@ $(function() {
 
 </head>
 
-
+</html>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -209,7 +209,7 @@ $(function() {
 <body>
     <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" id="high" href="javascript:shake()" target="_blank" rel="noopener" ondblclick="location.reload(true)" title="一起摇摆！">
+        <a class="header-avatar" id="high" href="javascript:shake()" ondblclick="location.reload(true)" title="一起摇摆！">
             <img src="/img/avatar.jpg" alt="logo头像">
         </a>
         <div class="branding">
@@ -300,29 +300,36 @@ $(function() {
     </div>
     
     <div class="post-body post-content">
-        <h1 id="1-设置滑动的时候隐藏navigationBar"><a href="#1-设置滑动的时候隐藏navigationBar" class="headerlink" title="1.设置滑动的时候隐藏navigationBar"></a>1.设置滑动的时候隐藏navigationBar</h1><pre><code class="objective-c">self.navigationController.hidesBarsOnSwipe = Yes;</code></pre>
+        <h1 id="1-设置滑动的时候隐藏navigationBar"><a href="#1-设置滑动的时候隐藏navigationBar" class="headerlink" title="1.设置滑动的时候隐藏navigationBar"></a>1.设置滑动的时候隐藏navigationBar</h1><pre><code class="objective-c">self.navigationController.hidesBarsOnSwipe = Yes;
+</code></pre>
 <h1 id="2-获取UIWebView的高度"><a href="#2-获取UIWebView的高度" class="headerlink" title="2.获取UIWebView的高度"></a>2.获取UIWebView的高度</h1><pre><code class="objective-c">- (void)webViewDidFinishLoad:(UIWebView *)webView  {  
     CGFloat height = [[webView stringByEvaluatingJavaScriptFromString:@&quot;document.body.offsetHeight&quot;] floatValue];  
     CGRect frame = webView.frame;
     webView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, height);  
-}</code></pre>
+}
+</code></pre>
 <h1 id="3-带有中文的URL处理"><a href="#3-带有中文的URL处理" class="headerlink" title="3.带有中文的URL处理"></a>3.带有中文的URL处理</h1><pre><code class="objective-c">// 如：http://static.tripbe.com/videofiles/视频/我的视频.mp4
-NSString *path  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)model.mp4_url, CFSTR(&quot;&quot;), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</code></pre>
-<h1 id="4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）"><a href="#4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）" class="headerlink" title="4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）"></a>4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）</h1><pre><code class="objective-c">[[UIApplication sharedApplication] performSelector:@selector(suspend)];</code></pre>
+NSString *path  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)model.mp4_url, CFSTR(&quot;&quot;), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+</code></pre>
+<h1 id="4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）"><a href="#4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）" class="headerlink" title="4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）"></a>4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）</h1><pre><code class="objective-c">[[UIApplication sharedApplication] performSelector:@selector(suspend)];
+</code></pre>
 <h1 id="5-给UIView设置图片（UILabel一样适用）"><a href="#5-给UIView设置图片（UILabel一样适用）" class="headerlink" title="5.给UIView设置图片（UILabel一样适用）"></a>5.给UIView设置图片（UILabel一样适用）</h1><ul>
 <li>第一种方法： 利用的UIView的设置背景颜色方法，用图片做图案颜色，然后传给背景颜色。</li>
 </ul>
 <pre><code class="objective-c">UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@&quot;bgImg.png&quot;];
 UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-[myView setBackGroundColor:bgColor];</code></pre>
+[myView setBackGroundColor:bgColor];
+</code></pre>
 <ul>
 <li>第二种方法：</li>
 </ul>
 <pre><code class="objective-c">UIImage *image = [UIImage imageNamed:@&quot;yourPicName@2x.png&quot;];
 yourView.layer.contents = (__bridge id)image.CGImage;
 //设置显示的图片范围
-yourView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5); //四个值在0-1之间，对应的为x，y，width，height。</code></pre>
-<h1 id="6-去掉UITableView多余的分割线"><a href="#6-去掉UITableView多余的分割线" class="headerlink" title="6.去掉UITableView多余的分割线"></a>6.去掉UITableView多余的分割线</h1><pre><code class="objective-c">self.tableView.tableFooterView = [UIView new];</code></pre>
+yourView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5); //四个值在0-1之间，对应的为x，y，width，height。
+</code></pre>
+<h1 id="6-去掉UITableView多余的分割线"><a href="#6-去掉UITableView多余的分割线" class="headerlink" title="6.去掉UITableView多余的分割线"></a>6.去掉UITableView多余的分割线</h1><pre><code class="objective-c">self.tableView.tableFooterView = [UIView new];
+</code></pre>
 <h1 id="7-调整cell分割线的位置，两个方法一起用"><a href="#7-调整cell分割线的位置，两个方法一起用" class="headerlink" title="7.调整cell分割线的位置，两个方法一起用"></a>7.调整cell分割线的位置，两个方法一起用</h1><pre><code class="objective-c">-(void)viewDidLayoutSubviews {
 
     if ([self.mytableview respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -343,7 +350,8 @@ yourView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5); //四个值在
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
     }
-}</code></pre>
+}
+</code></pre>
 <h1 id="8-UISearchController和UISearchBar的Cancle按钮改title问题"><a href="#8-UISearchController和UISearchBar的Cancle按钮改title问题" class="headerlink" title="8.UISearchController和UISearchBar的Cancle按钮改title问题"></a>8.UISearchController和UISearchBar的Cancle按钮改title问题</h1><pre><code class="objective-c">- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     searchController.searchBar.showsCancelButton = YES;
     UIButton *canceLBtn = [searchController.searchBar valueForKey:@&quot;cancelButton&quot;];
@@ -351,12 +359,14 @@ yourView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5); //四个值在
     [canceLBtn setTitleColor:[UIColor colorWithRed:14.0/255.0 green:180.0/255.0 blue:0.0/255.0 alpha:1.00] forState:UIControlStateNormal];
     searchBar.showsCancelButton = YES;
     return YES;
-}</code></pre>
+}
+</code></pre>
 <h1 id="9-UITableView收起键盘"><a href="#9-UITableView收起键盘" class="headerlink" title="9.UITableView收起键盘"></a>9.UITableView收起键盘</h1><pre><code class="objective-c">// 方法1：
 [self.view endEditing:YES];
 // 方法2：
 self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-/// UIScrollView同样可以使用</code></pre>
+/// UIScrollView同样可以使用
+</code></pre>
 <h1 id="10-获取今天是星期几"><a href="#10-获取今天是星期几" class="headerlink" title="10.获取今天是星期几"></a>10.获取今天是星期几</h1><pre><code class="objective-c">+ (NSString *)getWeekDayStringWithDate:(NSDate *)date {
     NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];     // 指定日历的算法
     NSDateComponents *comps = [calendar components:NSWeekdayCalendarUnit fromDate:date];
@@ -412,7 +422,8 @@ self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     }
     return weekDayString;
 
-}</code></pre>
+}
+</code></pre>
 <h1 id="11-UIView的部分圆角问题"><a href="#11-UIView的部分圆角问题" class="headerlink" title="11.UIView的部分圆角问题"></a>11.UIView的部分圆角问题</h1><pre><code class="objective-c">UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];
 view2.backgroundColor = [UIColor redColor];
 [self.view addSubview:view2];
@@ -429,7 +440,8 @@ byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight
 * UIRectCornerTopRight
 * UIRectCornerBottomLeft
 * UIRectCornerBottomRight
-* UIRectCornerAllCorners</code></pre>
+* UIRectCornerAllCorners
+</code></pre>
 <h1 id="12-iOS画虚线"><a href="#12-iOS画虚线" class="headerlink" title="12.iOS画虚线"></a>12.iOS画虚线</h1><pre><code class="objective-c">// 记得先 QuartzCore框架的导入
 #import &lt;QuartzCore/QuartzCore.h&gt;
 
@@ -442,11 +454,15 @@ CGContextSetLineDash(context, 0, lengths,2);
 CGContextMoveToPoint(context, 10.0, 20.0);  
 CGContextAddLineToPoint(context, 310.0,20.0);  
 CGContextStrokePath(context);  
-CGContextClosePath(context); </code></pre>
+CGContextClosePath(context); 
+</code></pre>
 <h1 id="13-UILabel多行显示"><a href="#13-UILabel多行显示" class="headerlink" title="13.UILabel多行显示"></a>13.UILabel多行显示</h1><pre><code class="objective-c">// 自动布局中多行UILabel，需要设置其preferredMaxLayoutWidth属性才能正常显示多行内容。另外如果出现显示不全文本，可以在计算的结果基础上＋0.5
-CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height + 0.5;</code></pre>
-<h1 id="14-禁止程序运行时自动锁屏"><a href="#14-禁止程序运行时自动锁屏" class="headerlink" title="14.禁止程序运行时自动锁屏"></a>14.禁止程序运行时自动锁屏</h1><pre><code class="objective-c">[[UIApplication sharedApplication] setIdleTimerDisabled:YES];</code></pre>
-<h1 id="15-MBProgressHUD的使用"><a href="#15-MBProgressHUD的使用" class="headerlink" title="15.MBProgressHUD的使用"></a>15.MBProgressHUD的使用</h1><pre><code class="objective-c">使用MBProgressHud时，尽量不要加到UIWindow上，加self.view上即可。如果加UIWindow上在iPad上，旋转屏幕的时候MBProgressHud不会旋转。之前有人遇到这个bug，我让他改放到self.view上即可解决此bug。</code></pre>
+CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height + 0.5;
+</code></pre>
+<h1 id="14-禁止程序运行时自动锁屏"><a href="#14-禁止程序运行时自动锁屏" class="headerlink" title="14.禁止程序运行时自动锁屏"></a>14.禁止程序运行时自动锁屏</h1><pre><code class="objective-c">[[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+</code></pre>
+<h1 id="15-MBProgressHUD的使用"><a href="#15-MBProgressHUD的使用" class="headerlink" title="15.MBProgressHUD的使用"></a>15.MBProgressHUD的使用</h1><pre><code class="objective-c">使用MBProgressHud时，尽量不要加到UIWindow上，加self.view上即可。如果加UIWindow上在iPad上，旋转屏幕的时候MBProgressHud不会旋转。之前有人遇到这个bug，我让他改放到self.view上即可解决此bug。
+</code></pre>
 <h1 id="16-强制让App直接退出（非闪退，非崩溃）"><a href="#16-强制让App直接退出（非闪退，非崩溃）" class="headerlink" title="16.强制让App直接退出（非闪退，非崩溃）"></a>16.强制让App直接退出（非闪退，非崩溃）</h1><pre><code class="objective-c">- (void)exitApplication {
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     UIWindow *window = app.window;
@@ -455,7 +471,8 @@ CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen]
     } completion:^(BOOL finished) {
         exit(0);
     }];
-}</code></pre>
+}
+</code></pre>
 
     </div>
 

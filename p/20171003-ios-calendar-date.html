@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,10 +14,10 @@
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
     <link rel="dns-prefetch" href="http://blog.91renb.com">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 设置代码高亮 -->
-    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
     <script type="text/javascript" src="/js/highlight.pack.js"></script>
     <script>
         // highlight
@@ -25,19 +25,19 @@
     </script>
     <!--SEO-->
 
-<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。"/>
+<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。">
 
 
-<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩"/>
+<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩">
 
 
-<meta name="author" content="任波"/>
+<meta name="author" content="任波">
 
 
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
     <!--Title-->
 
 
@@ -155,7 +155,7 @@ $(function() {
 }); 
 </script>
     
-    <meta name="baidu-site-verification" content="FPIfC8aCPl" />
+    <meta name="baidu-site-verification" content="FPIfC8aCPl">
 
     
         <script>
@@ -179,7 +179,7 @@ $(function() {
 
 
     
-    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM" />
+    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM">
 
 
     <!-- 内接入网页在线联系功能 -->
@@ -196,7 +196,7 @@ $(function() {
 
 </head>
 
-
+</html>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -209,7 +209,7 @@ $(function() {
 <body>
     <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" id="high" href="javascript:shake()" target="_blank" rel="noopener" ondblclick="location.reload(true)" title="一起摇摆！">
+        <a class="header-avatar" id="high" href="javascript:shake()" ondblclick="location.reload(true)" title="一起摇摆！">
             <img src="/img/avatar.jpg" alt="logo头像">
         </a>
         <div class="branding">
@@ -302,10 +302,12 @@ $(function() {
     <div class="post-body post-content">
         <h1 id="1-获取当前时间"><a href="#1-获取当前时间" class="headerlink" title="1.获取当前时间"></a>1.获取当前时间</h1><pre><code class="objective-c">NSCalendar *calendar = [NSCalendar currentCalendar];
 NSDateComponents  *components  =  [calendar components:NSCalendarUnitMinute | NSCalendarUnitMonth | NSCalendarUnitHour | NSCalendarUnitDay fromDate:[NSDate date]];
-NSLog(@&quot;%ld月%ld日%ld时%ld分&quot; ,(long)components.month,(long)components.day,(long)components.hour,(long)components.minute);</code></pre>
+NSLog(@&quot;%ld月%ld日%ld时%ld分&quot; ,(long)components.month,(long)components.day,(long)components.hour,(long)components.minute);
+</code></pre>
 <h1 id="2-查看今天是在今年的第几周"><a href="#2-查看今天是在今年的第几周" class="headerlink" title="2.查看今天是在今年的第几周"></a>2.查看今天是在今年的第几周</h1><pre><code class="objective-c">NSCalendar *calendar1 = [NSCalendar currentCalendar];
 NSInteger week = [calendar1 ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:[NSDate date]];
-NSLog(@&quot;今天是今年的第%ld周&quot;,(long)week);</code></pre>
+NSLog(@&quot;今天是今年的第%ld周&quot;,(long)week);
+</code></pre>
 <h1 id="3-现在往后3天2小时"><a href="#3-现在往后3天2小时" class="headerlink" title="3.现在往后3天2小时"></a>3.现在往后3天2小时</h1><pre><code class="objective-c">NSDateComponents * components2 = [[NSDateComponents alloc] init];
 components2.year = 0;
 components2.day = 3;
@@ -316,7 +318,8 @@ NSDate *nextData = [calendar3 dateByAddingComponents:components2 toDate:currentD
 NSDateFormatter * formatter1 = [[NSDateFormatter alloc] init];
 formatter1.dateFormat = @&quot;yyyy年MM月dd日hh时mm分ss秒&quot;;
 NSString * str1 = [formatter1 stringFromDate:nextData];
-NSLog(@&quot;%@&quot;,str1);</code></pre>
+NSLog(@&quot;%@&quot;,str1);
+</code></pre>
 <h1 id="4-需求：一天执行一次某个操作"><a href="#4-需求：一天执行一次某个操作" class="headerlink" title="4.需求：一天执行一次某个操作"></a>4.需求：一天执行一次某个操作</h1><pre><code class="objective-c">- (void)setToday:(NSString *)userDefaultsName{
 // 存储当前时间
 NSCalendar *calendar0 = [NSCalendar currentCalendar];
@@ -341,7 +344,8 @@ if (todayTimeInDay&gt;lastTimeInDay) {
     return YES;
 }
 return NO;
-}</code></pre>
+}
+</code></pre>
 <h1 id="5-在某个界面上显示VIP的截止时间，VIP的时间是一个月"><a href="#5-在某个界面上显示VIP的截止时间，VIP的时间是一个月" class="headerlink" title="5.在某个界面上显示VIP的截止时间，VIP的时间是一个月"></a>5.在某个界面上显示VIP的截止时间，VIP的时间是一个月</h1><pre><code class="objective-c">static NSString *const limitDate = @&quot;limitDate&quot;;
 static NSString *const formatPaymentTime = @&quot;formatPaymentTime&quot;;
 + (NSString *)persistLimitTime:(NSString *)paymentTime{
@@ -398,7 +402,8 @@ if (recordDate) {
 }
 return YES;
 
-}</code></pre>
+}
+</code></pre>
 
     </div>
 

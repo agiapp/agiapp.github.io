@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,10 +14,10 @@
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
     <link rel="dns-prefetch" href="http://blog.91renb.com">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 设置代码高亮 -->
-    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
     <script type="text/javascript" src="/js/highlight.pack.js"></script>
     <script>
         // highlight
@@ -25,19 +25,19 @@
     </script>
     <!--SEO-->
 
-<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。"/>
+<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。">
 
 
-<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩"/>
+<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩">
 
 
-<meta name="author" content="任波"/>
+<meta name="author" content="任波">
 
 
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
     <!--Title-->
 
 
@@ -155,7 +155,7 @@ $(function() {
 }); 
 </script>
     
-    <meta name="baidu-site-verification" content="FPIfC8aCPl" />
+    <meta name="baidu-site-verification" content="FPIfC8aCPl">
 
     
         <script>
@@ -179,7 +179,7 @@ $(function() {
 
 
     
-    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM" />
+    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM">
 
 
     <!-- 内接入网页在线联系功能 -->
@@ -196,7 +196,7 @@ $(function() {
 
 </head>
 
-
+</html>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -209,7 +209,7 @@ $(function() {
 <body>
     <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" id="high" href="javascript:shake()" target="_blank" rel="noopener" ondblclick="location.reload(true)" title="一起摇摆！">
+        <a class="header-avatar" id="high" href="javascript:shake()" ondblclick="location.reload(true)" title="一起摇摆！">
             <img src="/img/avatar.jpg" alt="logo头像">
         </a>
         <div class="branding">
@@ -307,14 +307,16 @@ $(function() {
   #define NSLog(FORMAT, ...) fprintf(stderr, &quot;[%s(%d):%s]\t%s\n&quot;,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __func__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
   #define NSLog(FORMAT, ...) nil
-#endif</code></pre>
+#endif
+</code></pre>
 <ul>
 <li>只在OC语言的情况下引用</li>
 </ul>
 <pre><code class="objective-c">// 保证 #ifdef 中的内容只会在 ObjectivObjective-C，在 C/C++ 代码中不会被引用
 #ifdef __OBJC__
    // 定义宏或导入头文件
-#endif</code></pre>
+#endif
+</code></pre>
 <ul>
 <li>判断当前的iPhone设备/系统版本</li>
 </ul>
@@ -325,7 +327,8 @@ $(function() {
 //判断是否为ipod
 #define IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@&quot;iPod touch&quot;])
 //获取系统版本
-#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]</code></pre>
+#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+</code></pre>
 <ul>
 <li>使用 ARC 和 MRC</li>
 </ul>
@@ -333,20 +336,23 @@ $(function() {
     // ARC
 #else
     // MRC
-#endif</code></pre>
+#endif
+</code></pre>
 <ul>
 <li>宏与const 的使用</li>
 </ul>
 <pre><code>宏的用法：一般定义代码就用宏。
 const用法：一般定义一个常量字符串就用const（如，服务器的地址）。
-static NSString * const server_host = @&quot;api.apple.com&quot;;</code></pre><ul>
+static NSString * const server_host = @&quot;api.apple.com&quot;;
+</code></pre><ul>
 <li>判断当前设备是模拟器还是真机</li>
 </ul>
 <pre><code class="objective-c">#if TARGET_IPHONE_SIMULATOR  
     // 模拟器  
 #elif TARGET_OS_IPHONE  
     // 真机  
-#endif  </code></pre>
+#endif  
+</code></pre>
 <ul>
 <li>判断当前设备系统</li>
 </ul>
@@ -361,11 +367,13 @@ static NSString * const server_host = @&quot;api.apple.com&quot;;</code></pre><u
     // 这里写设备系统小于7.0以上的代码  
 #else  
     // 这里写设备系统大于7.0以上的代码  
-#endif </code></pre>
+#endif 
+</code></pre>
 <ul>
 <li>设置随机颜色</li>
 </ul>
-<pre><code class="objective-c">#define GRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]</code></pre>
+<pre><code class="objective-c">#define GRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+</code></pre>
 <ul>
 <li>静态库(.a文件)中有分类，调用分类中的方法 crash</li>
 </ul>
@@ -389,7 +397,8 @@ static NSString * const server_host = @&quot;api.apple.com&quot;;</code></pre><u
 
 #endif
 
-// 在ios开发过程中，有时候会用到第三方的静态库(.a文件)，OC没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，会出现selector not recognized的错误，从而导致app闪退。使用这段宏定义他可以虚拟新建一个与名字category 相同.h.m 让编译器 编译通过。即可解决上面的问题。</code></pre>
+// 在ios开发过程中，有时候会用到第三方的静态库(.a文件)，OC没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，会出现selector not recognized的错误，从而导致app闪退。使用这段宏定义他可以虚拟新建一个与名字category 相同.h.m 让编译器 编译通过。即可解决上面的问题。
+</code></pre>
 <ul>
 <li>合成弱引用或者强引用。</li>
 </ul>
@@ -436,7 +445,8 @@ static NSString * const server_host = @&quot;api.apple.com&quot;;</code></pre><u
         #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
         #endif
     #endif
-#endif</code></pre>
+#endif
+</code></pre>
 <ul>
 <li>断言</li>
 </ul>
@@ -463,7 +473,8 @@ NSAssert(a == 5, @&quot;a must equal to 5&quot;); //第一个参数是条件,如
 #define BRCAssertNotNil(condition, description, ...) NSCAssert((condition), (description), ##__VA_ARGS__)
 
 #define BRAssertMainThread() NSAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)
-#define BRCAssertMainThread() NSCAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)</code></pre>
+#define BRCAssertMainThread() NSCAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)
+</code></pre>
 <h1 id="系统宏"><a href="#系统宏" class="headerlink" title="系统宏"></a>系统宏</h1><ul>
 <li>NS_AVAILABLE_IOS 与 NS_DEPRECATED_IOS</li>
 </ul>
@@ -478,7 +489,8 @@ NSAssert(a == 5, @&quot;a must equal to 5&quot;); //第一个参数是条件,如
     NS_AVAILABEL_IOS(6_0) 表示自 iOS6.0 引入该方法，若在iOS6.0之前的版本使用该函数，则会导致 Crash；
     NS_DEPRECATED_IOS(2_0, 7_0, &quot;替代函数&quot;)  表示该函数自 iOS2.0 引入，在 iOS7.0 被废弃。推荐 iOS7.0 之后使用替代函数。
     NS_DEPRECATED(10_6, 10_9, 2_0, 7_0) 表示自 Mac10.6 和 iOS2.0 引入，在 Mac10.9 和 iOS7.0 被废弃
- */</code></pre>
+ */
+</code></pre>
 <ul>
 <li>忽略编译器警告宏</li>
 </ul>
@@ -488,7 +500,8 @@ NSAssert(a == 5, @&quot;a must equal to 5&quot;); //第一个参数是条件,如
 
 CGSize size = [self sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lineBreakMode];
 
-#pragma clang diagnostic pop</code></pre>
+#pragma clang diagnostic pop
+</code></pre>
 <ul>
 <li>全局设置 <code>nonnull</code> 类型的宏</li>
 </ul>
@@ -510,7 +523,8 @@ CGSize size = [self sizeWithFont:font constrainedToSize:maxSize lineBreakMode:li
 
 @end
 
-NS_ASSUME_NONNULL_END</code></pre>
+NS_ASSUME_NONNULL_END
+</code></pre>
 <p><code>NS_ASSUME_NONNULL_BEGIN</code> 和 <code>NS_ASSUME_NONNULL_END</code> 两个宏之间的代码，所有指针对象都被假定为nonnull， 即不能为空，否则编辑器会报警告 <code>Null passed to a callee that requires a non-null argument</code>。</p>
 <blockquote>
 <p>该段代码使用了 <code>NS_ASSUME_NONNULL_BEGIN</code> , <code>NS_ASSUME_NONNULL_END</code></p>

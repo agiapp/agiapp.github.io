@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,10 +14,10 @@
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
     <link rel="dns-prefetch" href="http://blog.91renb.com">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 设置代码高亮 -->
-    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
     <script type="text/javascript" src="/js/highlight.pack.js"></script>
     <script>
         // highlight
@@ -25,19 +25,19 @@
     </script>
     <!--SEO-->
 
-<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。"/>
+<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。">
 
 
-<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩"/>
+<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩">
 
 
-<meta name="author" content="任波"/>
+<meta name="author" content="任波">
 
 
-<meta name="robots" content="all" />
-<meta name="google" content="all" />
-<meta name="googlebot" content="all" />
-<meta name="verify" content="all" />
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
     <!--Title-->
 
 
@@ -155,7 +155,7 @@ $(function() {
 }); 
 </script>
     
-    <meta name="baidu-site-verification" content="FPIfC8aCPl" />
+    <meta name="baidu-site-verification" content="FPIfC8aCPl">
 
     
         <script>
@@ -179,7 +179,7 @@ $(function() {
 
 
     
-    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM" />
+    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM">
 
 
     <!-- 内接入网页在线联系功能 -->
@@ -196,7 +196,7 @@ $(function() {
 
 </head>
 
-
+</html>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -209,7 +209,7 @@ $(function() {
 <body>
     <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" id="high" href="javascript:shake()" target="_blank" rel="noopener" ondblclick="location.reload(true)" title="一起摇摆！">
+        <a class="header-avatar" id="high" href="javascript:shake()" ondblclick="location.reload(true)" title="一起摇摆！">
             <img src="/img/avatar.jpg" alt="logo头像">
         </a>
         <div class="branding">
@@ -426,7 +426,8 @@ $(function() {
   },
   // 设置是否开启debug模式，即是否在控制台输出调试信息（选填）
   &quot;debug&quot;: true
-}</code></pre>
+}
+</code></pre>
 <p><code>page_name.json文件（页面配置文件）</code></p>
 <pre><code class="json">说明：每一个小程序页面也可以使用.json文件来对本页面的窗口表现进行配置。 页面的配置比app.json全局配置简单得多，只是设置 app.json 中的 window 配置项的内容，页面中配置项会覆盖 app.json 的 window 中相同的配置项。页面的.json只能设置 window 相关的配置项，以决定本页面的窗口表现，所以无需写 window 这个键，如：
 {
@@ -437,7 +438,8 @@ $(function() {
   &quot;backgroundTextStyle&quot;: &quot;dark&quot;       // 下拉背景字体、loading 图的样式，仅支持 dark/light
   &quot;enablePullDownRefresh&quot;: false      // 是否开启下拉刷新
   &quot;disableScroll&quot;: false              // 设置为 true 则页面整体不能上下滚动；只在 page.json 中有效，无法在 app.json 中设置该项
-}</code></pre>
+}
+</code></pre>
 <h1 id="逻辑层（App-Service）"><a href="#逻辑层（App-Service）" class="headerlink" title="逻辑层（App Service）"></a>逻辑层（App Service）</h1><ul>
 <li>小程序开发框架的逻辑层是由JavaScript编写。</li>
 <li>逻辑层将数据进行处理后发送给视图层，同时接受视图层的事件反馈。<ul>
@@ -477,13 +479,15 @@ App({
   globalData: &#39;I am global data&#39;
 })
 // 在APP()函数内可以设置全局函数和全局数据。
-// 在app.js文件内部是通过this获取当前小程序的实例，在该文件外部是通过getApp()函数获取。</code></pre>
+// 在app.js文件内部是通过this获取当前小程序的实例，在该文件外部是通过getApp()函数获取。
+</code></pre>
 <p>补充：</p>
 <pre><code class="javascript">// other.js
 // 在APP()函数内部，直接用this就可以获取到小程序实例。
 // 在APP()函数外部，我们提供了全局的 getApp() 函数，可以获取到小程序实例。
 var appInstance = getApp()
-console.log(appInstance.globalData) // I am global data</code></pre>
+console.log(appInstance.globalData) // I am global data
+</code></pre>
 <h4 id="2-注册页面-—》-page-name-js文件"><a href="#2-注册页面-—》-page-name-js文件" class="headerlink" title="2. 注册页面 —》 page_name.js文件"></a>2. 注册页面 —》 page_name.js文件</h4><ul>
 <li>说明：<code>Page()</code> 函数用来注册一个页面。接受一个 object 参数，其指定页面的初始数据、生命周期函数、事件处理函数等。</li>
 </ul>
@@ -550,19 +554,22 @@ Page({
   customData: {
     hi: &#39;MINA&#39;
   }
-})</code></pre>
+})
+</code></pre>
 <h4 id="事件处理函数"><a href="#事件处理函数" class="headerlink" title="事件处理函数"></a>事件处理函数</h4><ul>
 <li>除了初始化数据和生命周期函数，Page 中还可以定义一些特殊的函数：事件处理函数。在渲染层可以在组件中加入<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/event.html?t=20161222" target="_blank" rel="noopener">事件绑定</a>，当达到触发事件时，就会执行 Page 中定义的事件处理函数。</li>
 <li>示例代码：</li>
 </ul>
 <pre><code class="xml">&lt;!--index.wxml  视图层 --&gt;
-&lt;view bindtap=&quot;viewTap&quot;&gt; 刷新 &lt;/view&gt;</code></pre>
+&lt;view bindtap=&quot;viewTap&quot;&gt; 刷新 &lt;/view&gt;
+</code></pre>
 <pre><code class="javascript">// index.js  逻辑层
 Page({
   viewTap: function() {
     console.log(&#39; 刷新 视图被点击了&#39;)
   }
-})</code></pre>
+})
+</code></pre>
 <h4 id="setData-函数"><a href="#setData-函数" class="headerlink" title="setData() 函数"></a>setData() 函数</h4><p><code>setData()</code> 函数用于将数据从逻辑层发送到视图层，同时改变对应的<code>this.data</code>的值。</p>
 <p>注意：</p>
 <ul>
@@ -579,7 +586,8 @@ Page({
 &lt;view&gt;{{object.text}}&lt;/view&gt;
 &lt;button bindtap=&quot;changeItemInObject&quot;&gt; Change Object data &lt;/button&gt;
 &lt;view&gt;{{newField.text}}&lt;/view&gt;
-&lt;button bindtap=&quot;addNewField&quot;&gt; Add new data &lt;/button&gt;</code></pre>
+&lt;button bindtap=&quot;addNewField&quot;&gt; Add new data &lt;/button&gt;
+</code></pre>
 <pre><code class="javascript">//index.js
 Page({
   data: {
@@ -611,7 +619,8 @@ Page({
       &#39;newField.text&#39;: &#39;new data&#39;
     })
   }
-})</code></pre>
+})
+</code></pre>
 </li>
 </ul>
 <h4 id="getCurrentPages"><a href="#getCurrentPages" class="headerlink" title="getCurrentPages()"></a>getCurrentPages()</h4><ul>
@@ -620,27 +629,29 @@ Page({
 <table>
 <thead>
 <tr>
-<th align="center">页面跳转</th>
-<th align="center">跳转方法</th>
+<th style="text-align:center">页面跳转</th>
+<th style="text-align:center">跳转方法</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">打开新页面</td>
-<td align="center">调用 API <code>wx.navigateTo</code> 或使用组件 <code>&lt;navigator open-type=&quot;navigate&quot;/&gt;</code></td>
+<tbody>
+<tr>
+<td style="text-align:center">打开新页面</td>
+<td style="text-align:center">调用 API <code>wx.navigateTo</code> 或使用组件 <code>&lt;navigator open-type=&quot;navigate&quot;/&gt;</code></td>
 </tr>
 <tr>
-<td align="center">页面重定向</td>
-<td align="center">调用 API <code>wx.redirectTo</code> 或使用组件 <code>&lt;navigator open-type=&quot;redirect&quot;/&gt;</code></td>
+<td style="text-align:center">页面重定向</td>
+<td style="text-align:center">调用 API <code>wx.redirectTo</code> 或使用组件 <code>&lt;navigator open-type=&quot;redirect&quot;/&gt;</code></td>
 </tr>
 <tr>
-<td align="center">页面返回</td>
-<td align="center">调用 API <code>wx.navigateBack</code> 或用户按左上角返回按钮</td>
+<td style="text-align:center">页面返回</td>
+<td style="text-align:center">调用 API <code>wx.navigateBack</code> 或用户按左上角返回按钮</td>
 </tr>
 <tr>
-<td align="center">Tab 切换</td>
-<td align="center">调用 <code>API wx.switchTab</code> 或使用组件<code>&lt;navigator open-type=&quot;switchTab&quot;/&gt;</code> 或用户切换 Tab</td>
+<td style="text-align:center">Tab 切换</td>
+<td style="text-align:center">调用 <code>API wx.switchTab</code> 或使用组件<code>&lt;navigator open-type=&quot;switchTab&quot;/&gt;</code> 或用户切换 Tab</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h4 id="3-文件作用域"><a href="#3-文件作用域" class="headerlink" title="3. 文件作用域"></a>3. 文件作用域</h4><ul>
 <li>在javaScript 文件中声明的变量和函数只在该文件中有效；不同的文件中可以声明相同名字的变量和函数，不会互相影响。</li>
 <li>通过全局函数 <code>getApp()</code>可以获取全局的应用实例，如果需要全局的数据可以在 <code>App()</code> 中设置。</li>
@@ -658,7 +669,8 @@ function sayGoodbye(name) {
 }
 
 module.exports.sayHello = sayHello
-exports.sayGoodbye = sayGoodbye</code></pre>
+exports.sayGoodbye = sayGoodbye
+</code></pre>
 <pre><code class="javascript">// page_name.js
 // 在需要使用这些模块的文件中，使用 require(path) 将公共代码引入
 var common = require(&#39;common.js&#39;)
@@ -669,18 +681,21 @@ Page({
   goodbyeMINA: function() {
     common.sayGoodbye(&#39;MINA&#39;)
   }
-})</code></pre>
+})
+</code></pre>
 <p>WXML常用的标签：</p>
 <pre><code class="xml">&lt;view&gt;  类似于 &lt;div&gt;
 &lt;text&gt; 类似于 &lt;font&gt;&lt;span&gt;
 &lt;image&gt; 类似于 &lt;img&gt;
-&lt;navigator&gt; 类似于 &lt;a&gt;</code></pre>
+&lt;navigator&gt; 类似于 &lt;a&gt;
+</code></pre>
 </li>
 </ul>
 <p>小程序的内容通常不能大于2MB！</p>
 <p>css3为了区分伪类和伪元素，伪元素采用双冒号写法。</p>
 <pre><code class="\">常见伪类— :hover, :link, :active, :target, :not(), :focus。
-常见伪元素— ::first-letter, ::first-line, ::before, ::after, ::selection。</code></pre>
+常见伪元素— ::first-letter, ::first-line, ::before, ::after, ::selection。
+</code></pre>
 <p>::before和::after下特有的content，用于在css渲染中向元素逻辑上的头部或尾部添加内容。</p>
 <p>这些添加不会出现在DOM中，不会改变文档内容，不可复制，仅仅是在css渲染层加入。</p>
 <p>所以不要用:before或:after展示有实际意义的内容，尽量使用它们显示修饰性内容，例如图标。</p>
