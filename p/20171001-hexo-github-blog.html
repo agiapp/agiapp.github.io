@@ -314,7 +314,9 @@ $(function() {
 <p>终端输入：查看安装的版本，检查是否已安装成功！</p>
 <pre><code class="bash">$ hexo -v  // 显示 Hexo 版本</code></pre>
 <h1 id="2-建站"><a href="#2-建站" class="headerlink" title="2.建站"></a>2.建站</h1><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<pre><code class="bash">$ cd /Users/renbo/Workspaces/BlogProject
+<pre><code class="bash">// 新建空文件夹
+$ cd /Users/renbo/Workspaces/BlogProject
+// 初始化
 $ hexo init 
 $ npm install</code></pre>
 <p>新建完成后，指定文件夹的目录如下：</p>
@@ -338,13 +340,15 @@ $ npm install</code></pre>
 <li><p>部署网站指令：</p>
 <pre><code class="bash">$ hexo d  // d 表示 deploy，是简写</code></pre>
 </li>
+<li><p>注意，如果报错： <code>ERROR Deployer not found: git</code></p>
+<p>需要我们再安装一个插件：</p>
+<pre><code class="bash">$ sudo npm install hexo-deployer-git --save</code></pre>
+<p>安装完插件之后再执行一下【hexo d】,它就会开始将public文件夹下的文件全部上传到你的gitHub仓库中。</p>
+</li>
 </ul>
 <h1 id="6-清除文件"><a href="#6-清除文件" class="headerlink" title="6.清除文件"></a>6.清除文件</h1><p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public目录下的所有文件</code>)。</p>
 <p>清除指令：（一般是更改不生效时使用）</p>
 <pre><code class="bash">$ hexo clean</code></pre>
-<p>上传到github，需要我们再安装一个插件：</p>
-<pre><code class="bash">$ sudo npm install hexo-deployer-git --save</code></pre>
-<p>安装完插件之后再执行一下【hexo d】,它就会开始将public文件夹下的文件全部上传到你的gitHub仓库中。</p>
 
     </div>
 
