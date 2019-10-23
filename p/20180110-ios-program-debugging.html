@@ -41,7 +41,7 @@
     <!--Title-->
 
 
-<title>归档 | 任波的博客</title>
+<title>iOS程序调试 | 任波的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
@@ -258,84 +258,146 @@ $(function() {
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-9 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年月</h1>
-        
-          <li class="post-items" _href="/p/20180828-mini-program-beginner-notes.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180828-mini-program-beginner-notes.html"> 小程序入门学习笔记 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180121-ios-runtime.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180121-ios-runtime.html"> iOS知识点-Runtime </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180114-ios-runloop.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180114-ios-runloop.html"> iOS知识点-RunLoop </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180112-collection-online-program-bug.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180112-collection-online-program-bug.html"> 如何收集线上程序的bug </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180110-ios-program-debugging.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180110-ios-program-debugging.html"> iOS程序调试 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171202-ios-interview-question-1.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171202-ios-interview-question-1.html"> iOS面试题-(1)基础篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171105-ios-core-knowledge-summary.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171105-ios-core-knowledge-summary.html"> iOS开发中常用知识点总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171005-xcode-other-linker-flags.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171005-xcode-other-linker-flags.html"> Xcode中Other Linker Flags的作用 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171004-ios-define.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171004-ios-define.html"> iOS中常见的宏 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171003-ios-calendar-date.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171003-ios-calendar-date.html"> iOS中关于日历和日期的计算 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS程序调试">
+            
+	            iOS程序调试
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/ios-core/">iOS干货</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018-01-10</span>
+    </span>
+
+       
+    
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&lt;i class=&#39;fa fa-angle-right&#39;&gt;&lt;&#x2F;i&gt;</a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>在iOS开发中如何调试程序？<ul>
+<li>调用堆栈的调试技巧</li>
+<li>打全局断点</li>
+<li>局部断点</li>
+<li>lldb</li>
+<li>instrument：Time Profile / Core Animation / 内存泄露</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-调用堆栈的调试技巧"><a href="#1-调用堆栈的调试技巧" class="headerlink" title="1.调用堆栈的调试技巧"></a>1.调用堆栈的调试技巧</h1><ul>
+<li>演示Demo：</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqz822zgdnj30ts0l8jw9.jpg" alt="4FD54FFA-BE95-4EA2-A26E-CDD72BE4CA2F"></p>
+<ul>
+<li>Command+R，程序一运行就Crash！</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqz8arhem6j30ts0n5dp3.jpg" alt="16C11D5E-B62B-47BA-8565-73C3E1F7F009"></p>
+<ul>
+<li>查看 *<em><code>reason:</code> *</em>，初步分析Crash原因：</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqz9ksu86nj30qq0e5tcz.jpg" alt=""></p>
+<pre><code>reason: &#39;*** -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[1]&#39;
+// 错误原因：试图在数组索引为1的位置插入nil空对象。</code></pre><ul>
+<li>接下来，去找是在程序哪里插入了nil空对象。查看程序的调用堆栈（先执行的方法在下面，后执行的方法在上面）</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fqza5nwwncj30ql0jqqib.jpg" alt="C76F31AD-C1CF-4191-A663-AB5BC9B6A154"></p>
+<ul>
+<li>根据reason的提示，从exception堆栈的附近定位到可能出现Crash的方法！</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzaicfkivj30jv0b17ba.jpg" alt="00B2B7C9-A558-4DD0-A35B-C2C2CB6B0B5A"></p>
+<ul>
+<li>查看调用堆栈，发现调用  <code>[NSArray arrayWithObjects:count:]</code>  方法后出现了崩溃，继续查看下面的方法，就可以轻易的定位到 <strong>ViewController</strong> 中的 <code>testCrash</code> 方法</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fqzb1d9xabj30qp0hcaf9.jpg" alt="9F6E0171-7E73-4627-B695-BE7955B8FDFD"></p>
+<ul>
+<li>注意：在真机上调试，只显示错误信息，不显示详细的调用堆栈内容！</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fqzb7080izj30o703v788.jpg" alt="7B19A02F-2040-42B6-9132-6234A1B1906E"></p>
+<h1 id="2-打全局断点"><a href="#2-打全局断点" class="headerlink" title="2.打全局断点"></a>2.打全局断点</h1><p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fqzbidi9ctj30qp0kfn29.jpg" alt="A3999DC5-E303-47BD-A5BD-C54CDAFB6CDD"></p>
+<ul>
+<li>添加全局断点后，直接Command+R运行</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzblplalbj30ts0m0gub.jpg" alt="ACD1928C-A23F-4A63-A0F4-33E4764471C7"></p>
+<ul>
+<li>打全局断点后，直接就定位到错误行代码！</li>
+</ul>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><ul>
+<li><p>程序Crash后，可以从控制台查看调用堆栈信息。也可以从左边面板查看调用堆栈信息。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fr0eailem9j30w90n0793.jpg" alt="查看调用堆栈信息"></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fr0eruj0a8j30w90n078w.jpg" alt="可以看到源程序的堆栈"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fr0ep2fz2gj30x10nswla.jpg" alt="只能看到汇编语言的堆栈"></p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://blog.91renb.com" target="_blank">renbo</a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20180112-collection-online-program-bug.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20171202-ios-interview-question-1.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+          clientID:  '18142678935fe7020ca4',
+          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          repo: '91renb.github.io',
+          id: window.location.pathname,
+          owner: '91renb',
+          admin: '91renb',
+          distractionFreeMode: 'true',
+     })
+    gitalk.render('comments')
+</script>
+	<div id="gitalk-container"></div>	
 
+    </div>
 
 
                 </main>

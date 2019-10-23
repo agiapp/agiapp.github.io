@@ -41,7 +41,7 @@
     <!--Title-->
 
 
-<title>归档 | 任波的博客</title>
+<title>iOS中常见的宏 | 任波的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
@@ -258,84 +258,309 @@ $(function() {
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-9 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年月</h1>
-        
-          <li class="post-items" _href="/p/20180828-mini-program-beginner-notes.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180828-mini-program-beginner-notes.html"> 小程序入门学习笔记 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180121-ios-runtime.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180121-ios-runtime.html"> iOS知识点-Runtime </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180114-ios-runloop.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180114-ios-runloop.html"> iOS知识点-RunLoop </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180112-collection-online-program-bug.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180112-collection-online-program-bug.html"> 如何收集线上程序的bug </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180110-ios-program-debugging.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180110-ios-program-debugging.html"> iOS程序调试 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171202-ios-interview-question-1.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171202-ios-interview-question-1.html"> iOS面试题-(1)基础篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171105-ios-core-knowledge-summary.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171105-ios-core-knowledge-summary.html"> iOS开发中常用知识点总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171005-xcode-other-linker-flags.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171005-xcode-other-linker-flags.html"> Xcode中Other Linker Flags的作用 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171004-ios-define.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171004-ios-define.html"> iOS中常见的宏 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171003-ios-calendar-date.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171003-ios-calendar-date.html"> iOS中关于日历和日期的计算 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS中常见的宏">
+            
+	            iOS中常见的宏
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/define/">宏</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017-10-04</span>
+    </span>
+
+       
+    
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&lt;i class=&#39;fa fa-angle-right&#39;&gt;&lt;&#x2F;i&gt;</a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="自定义宏"><a href="#自定义宏" class="headerlink" title="自定义宏"></a>自定义宏</h1><ul>
+<li>处理NSLog事件(开发者模式打印,发布者模式不打印)</li>
+</ul>
+<pre><code class="objective-c">#ifdef DEBUG
+  #define NSLog(FORMAT, ...) fprintf(stderr, &quot;[%s(%d):%s]\t%s\n&quot;,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __func__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+  #define NSLog(FORMAT, ...) nil
+#endif</code></pre>
+<ul>
+<li>只在OC语言的情况下引用</li>
+</ul>
+<pre><code class="objective-c">// 保证 #ifdef 中的内容只会在 ObjectivObjective-C，在 C/C++ 代码中不会被引用
+#ifdef __OBJC__
+   // 定义宏或导入头文件
+#endif</code></pre>
+<ul>
+<li>判断当前的iPhone设备/系统版本</li>
+</ul>
+<pre><code class="objective-c">//判断是否为iPhone
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+//判断是否为iPad
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//判断是否为ipod
+#define IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@&quot;iPod touch&quot;])
+//获取系统版本
+#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]</code></pre>
+<ul>
+<li>使用 ARC 和 MRC</li>
+</ul>
+<pre><code class="objective-c">#if __has_feature(objc_arc)
+    // ARC
+#else
+    // MRC
+#endif</code></pre>
+<ul>
+<li>宏与const 的使用</li>
+</ul>
+<pre><code>宏的用法：一般定义代码就用宏。
+const用法：一般定义一个常量字符串就用const（如，服务器的地址）。
+static NSString * const server_host = @&quot;api.apple.com&quot;;</code></pre><ul>
+<li>判断当前设备是模拟器还是真机</li>
+</ul>
+<pre><code class="objective-c">#if TARGET_IPHONE_SIMULATOR  
+    // 模拟器  
+#elif TARGET_OS_IPHONE  
+    // 真机  
+#endif  </code></pre>
+<ul>
+<li>判断当前设备系统</li>
+</ul>
+<pre><code class="objective-c">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_8_0  
+    // 这里写设备系统大于8.0 以上的代码  
+#else  
+    // 这里写设备系统小于8.0以上的代码  
+#endif 
+
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED &lt;= __IPHONE_7_0  
+    // 这里写设备系统小于7.0以上的代码  
+#else  
+    // 这里写设备系统大于7.0以上的代码  
+#endif </code></pre>
+<ul>
+<li>设置随机颜色</li>
+</ul>
+<pre><code class="objective-c">#define GRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]</code></pre>
+<ul>
+<li>静态库(.a文件)中有分类，调用分类中的方法 crash</li>
+</ul>
+<pre><code class="objective-c">/**
+    静态库中编写 Category 时的便利宏，用于解决 Category 方法从静态库中加载需要特别设置的问题。
+    加入这个宏后，不需要再在 Xcode 的 Other Liker Fliags 中设置链接库参数（-Objc / -all_load / -force_load）
+    *******************************************************************************
+    使用:在静态库中每个分类的 @implementation 前添加这个宏
+    Example:
+        #import &quot;NSString+BRAdd.h&quot;
+
+        BRSYNTH_DUMMY_CLASS(NSString_BRAdd)
+        @implementation NSString (BRAdd)
+        @end
+ */
+#ifndef BRSYNTH_DUMMY_CLASS
+
+    #define BRSYNTH_DUMMY_CLASS(_name_) \
+    @interface BRSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
+    @implementation BRSYNTH_DUMMY_CLASS_ ## _name_ @end
+
+#endif
+
+// 在ios开发过程中，有时候会用到第三方的静态库(.a文件)，OC没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，会出现selector not recognized的错误，从而导致app闪退。使用这段宏定义他可以虚拟新建一个与名字category 相同.h.m 让编译器 编译通过。即可解决上面的问题。</code></pre>
+<ul>
+<li>合成弱引用或者强引用。</li>
+</ul>
+<pre><code class="objective-c">/**
+ Synthesize a weak or strong reference.
+
+ Example:
+    @weakify(self)
+    [self doSomething^{
+        @strongify(self)
+        if (!self) return;
+        ...
+    }];
+
+ */
+
+#ifndef weakify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+        #endif
+    #endif
+#endif
+
+#ifndef strongify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+        #else
+        #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+        #else
+        #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+        #endif
+    #endif
+#endif</code></pre>
+<ul>
+<li>断言</li>
+</ul>
+<pre><code class="objective-c">// 1.NSAssert / NSCAssert 的用法（如果条件为假,就会抛出异常）
+// 前者适用于Objective-C的方法,后者适用于C的函数。
+int a = 4;  
+NSAssert(a == 5, @&quot;a must equal to 5&quot;); //第一个参数是条件,如果条件为假,就会抛出异常并打印第二个参数的内容
+// 注意：NSAssert 的定义中有self（即持有self的strong引用），在block中使用时要避免出现循环引用问题。NSCAssert 的用法与 NSAssert 一致，适用于C语言的函数，在OC中也可以使用，并且没有持有self，在block中使用不会出现循环引用问题
+
+// 2.NSParameterAssert / NSCparameterAssert 的用法(是针对参数是否存在的断言)
+// 前者适用于Objective-C的方法,后者适用于C的函数。
+- (void)assertWithPara:(NSString *)str {  
+    NSParameterAssert(str); //只需要一个参数,如果参数存在程序继续运行,如果参数为空,则程序停止并打印日志  
+    //further code ...  
+}
+
+// Xcode 已经默认将release环境下的断言取消了, 免除了忘记关闭断言造成的程序不稳定。
+
+// 常用的几个自定义断言
+#define BRAssertNil(condition, description, ...) NSAssert(!(condition), (description), ##__VA_ARGS__)
+#define BRCAssertNil(condition, description, ...) NSCAssert(!(condition), (description), ##__VA_ARGS__)
+
+#define BRAssertNotNil(condition, description, ...) NSAssert((condition), (description), ##__VA_ARGS__)
+#define BRCAssertNotNil(condition, description, ...) NSCAssert((condition), (description), ##__VA_ARGS__)
+
+#define BRAssertMainThread() NSAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)
+#define BRCAssertMainThread() NSCAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)</code></pre>
+<h1 id="系统宏"><a href="#系统宏" class="headerlink" title="系统宏"></a>系统宏</h1><ul>
+<li>NS_AVAILABLE_IOS 与 NS_DEPRECATED_IOS</li>
+</ul>
+<pre><code class="objective-c">// 在iOS系统的API中，我们经常会看到下面的一些宏
+- (CGRect)boundingRectWithSize:(CGSize)size options:(NSStringDrawingOptions)options attributes:(nullable NSDictionary&lt;NSAttributedStringKey, id&gt; *)attributes context:(nullable NSStringDrawingContext *)context NS_AVAILABLE(10_11, 7_0);
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode NS_DEPRECATED_IOS(2_0, 7_0, &quot;Use -boundingRectWithSize:options:attributes:context:&quot;) __TVOS_PROHIBITED;
+
+/**
+    含义：(AVAILABLE：可用； DEPRECATED：弃用)
+    NS_AVAILABLE(10_11, 7_0) 表示自 Mac10.11 和 iOS7.0 引入该函数，即 iOS7之后 使用这个函数
+    NS_AVAILABEL_IOS(6_0) 表示自 iOS6.0 引入该方法，若在iOS6.0之前的版本使用该函数，则会导致 Crash；
+    NS_DEPRECATED_IOS(2_0, 7_0, &quot;替代函数&quot;)  表示该函数自 iOS2.0 引入，在 iOS7.0 被废弃。推荐 iOS7.0 之后使用替代函数。
+    NS_DEPRECATED(10_6, 10_9, 2_0, 7_0) 表示自 Mac10.6 和 iOS2.0 引入，在 Mac10.9 和 iOS7.0 被废弃
+ */</code></pre>
+<ul>
+<li>忽略编译器警告宏</li>
+</ul>
+<pre><code class="objective-c">// 处理编译器警告(下面 #pragma 的作用是，去掉方法的警告提示)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored &quot;-Wdeprecated-declarations&quot;
+
+CGSize size = [self sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lineBreakMode];
+
+#pragma clang diagnostic pop</code></pre>
+<ul>
+<li>全局设置 <code>nonnull</code> 类型的宏</li>
+</ul>
+<pre><code class="objective-c">NS_ASSUME_NONNULL_BEGIN
+
+/**
+ Provides extensions for `UIBarButtonItem`.
+ */
+@interface UIBarButtonItem (YYAdd)
+
+/**
+ The block that invoked when the item is selected. The objects captured by block
+ will retained by the ButtonItem.
+
+ @discussion This param is conflict with `target` and `action` property.
+ Set this will set `target` and `action` property to some internal objects.
+ */
+@property (nullable, nonatomic, copy) void (^actionBlock)(id);
+
+@end
+
+NS_ASSUME_NONNULL_END</code></pre>
+<p><code>NS_ASSUME_NONNULL_BEGIN</code> 和 <code>NS_ASSUME_NONNULL_END</code> 两个宏之间的代码，所有指针对象都被假定为nonnull， 即不能为空，否则编辑器会报警告 <code>Null passed to a callee that requires a non-null argument</code>。</p>
+<blockquote>
+<p>该段代码使用了 <code>NS_ASSUME_NONNULL_BEGIN</code> , <code>NS_ASSUME_NONNULL_END</code></p>
+<p>两个宏中间包含的属性，参数值，返回值，默认是 <code>nonnull</code> 类型。</p>
+<p>如果想要某个属性，参数值或者返回值为可选类型，则单独在该属性，参数值，或者返回值前单独标明<code>nullable</code>。</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://blog.91renb.com" target="_blank">renbo</a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20171005-xcode-other-linker-flags.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20171003-ios-calendar-date.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+          clientID:  '18142678935fe7020ca4',
+          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          repo: '91renb.github.io',
+          id: window.location.pathname,
+          owner: '91renb',
+          admin: '91renb',
+          distractionFreeMode: 'true',
+     })
+    gitalk.render('comments')
+</script>
+	<div id="gitalk-container"></div>	
 
+    </div>
 
 
                 </main>

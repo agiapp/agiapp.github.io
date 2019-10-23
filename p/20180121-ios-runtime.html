@@ -41,7 +41,7 @@
     <!--Title-->
 
 
-<title>归档 | 任波的博客</title>
+<title>iOS知识点-Runtime | 任波的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
@@ -258,84 +258,370 @@ $(function() {
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-9 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年月</h1>
-        
-          <li class="post-items" _href="/p/20180828-mini-program-beginner-notes.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180828-mini-program-beginner-notes.html"> 小程序入门学习笔记 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180121-ios-runtime.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180121-ios-runtime.html"> iOS知识点-Runtime </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180114-ios-runloop.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180114-ios-runloop.html"> iOS知识点-RunLoop </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180112-collection-online-program-bug.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180112-collection-online-program-bug.html"> 如何收集线上程序的bug </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180110-ios-program-debugging.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180110-ios-program-debugging.html"> iOS程序调试 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171202-ios-interview-question-1.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171202-ios-interview-question-1.html"> iOS面试题-(1)基础篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171105-ios-core-knowledge-summary.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171105-ios-core-knowledge-summary.html"> iOS开发中常用知识点总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171005-xcode-other-linker-flags.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171005-xcode-other-linker-flags.html"> Xcode中Other Linker Flags的作用 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171004-ios-define.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171004-ios-define.html"> iOS中常见的宏 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171003-ios-calendar-date.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171003-ios-calendar-date.html"> iOS中关于日历和日期的计算 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS知识点-Runtime">
+            
+	            iOS知识点-Runtime
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/ios-knowledge-module/">iOS知识点</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018-01-21</span>
+    </span>
+
+       
+    
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&lt;i class=&#39;fa fa-angle-right&#39;&gt;&lt;&#x2F;i&gt;</a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h1><ul>
+<li><p>带着问题来学习Runtime：</p>
+<p>Q1：什么是runtime运行时</p>
+<p>Q2：什么是isa指针</p>
+<p>Q3：什么是SEL，什么是IMP， 什么是Method</p>
+<p>Q4：什么是消息机制</p>
+<p>Q5：runtime运行时的使用场景</p>
+</li>
+</ul>
+<h1 id="2-概念"><a href="#2-概念" class="headerlink" title="2.概念"></a>2.概念</h1><ul>
+<li><p><strong>runtime</strong></p>
+<blockquote>
+<p>Objective-C是动态语言，它将很多静态语言在编译和链接时做的事放到了运行时，这个运行时系统就是runtime。</p>
+<p>runtime其实就是一个库，它基本上是用C和汇编写的一套API，这个库使C语言有了面向对象的能力。</p>
+<p>静态语言：在编译的时候会决定调用哪个函数。</p>
+<p>动态语言（OC）：在运行的时候根据函数的名称找到对应的函数来调用。</p>
+</blockquote>
+</li>
+<li><p><strong>isa</strong></p>
+<blockquote>
+<p>OC中，类和类的实例在本质上没有区别，都是对象，任何对象都有isa指针，它指向类或元类（元类后面会讲解）。</p>
+</blockquote>
+</li>
+<li><p><strong>SEL</strong></p>
+<blockquote>
+<p>SEL（又叫选择器）是方法的selector的指针。方法的selector表示运行时方法的名字。OC在编译时，会依据每一个方法的名字、参数，生成一个唯一的整型标识(Int类型的地址)，这个标识就是SEL。</p>
+</blockquote>
+</li>
+<li><p><strong>IMP</strong></p>
+<blockquote>
+<p>IMP是一个函数指针，指向方法最终实现的首地址。SEL就是为了查找方法的最终实现IMP。</p>
+</blockquote>
+</li>
+<li><p><strong>Method</strong></p>
+<blockquote>
+<p>用于表示类定义中的方法，它的结构体中包含一个SEL和IMP，相当于在SEL和IMP之间作了一个映射。</p>
+</blockquote>
+</li>
+<li><p><strong>消息机制</strong></p>
+<blockquote>
+<p>任何方法的调用本质就是发送一个消息。编译器会将消息表达式[receiver message]转化为一个消息函数objc_msgSend(receiver, selector)。</p>
+</blockquote>
+</li>
+<li><p><strong>Runtime的使用</strong></p>
+<blockquote>
+<p>获取属性列表，获取成员变量列表，获得方法列表，获取协议列表，方法交换（黑魔法），动态的添加方法，调用私有方法，为分类添加属性。</p>
+</blockquote>
+<p>​</p>
+</li>
+</ul>
+<p><strong>Runtime消息传递</strong></p>
+<p>一个对象的方法像这样 <code>[obj foo]</code>，编译器转成消息发送 <code>objc_msgSend(obj, foo)</code>，<code>Runtime</code> 时执行的流程是这样的：</p>
+<ul>
+<li>首先，通过<code>obj</code>的<code>isa</code>指针找到它的 <code>class</code> ;</li>
+<li>在 <code>class</code> 的 <code>method list</code> 找 <code>foo</code> ;</li>
+<li>如果 <code>class</code> 中没到 <code>foo</code>，继续往它的 <code>superclass</code> 中找 ;</li>
+<li>一旦找到 <code>foo</code> 这个函数，就去执行它的实现<code>IMP</code> （方法的实现，IMP是执行方法实现的内存地址的指针）。</li>
+</ul>
+<h1 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3.应用场景"></a>3.应用场景</h1><ul>
+<li><p>关联对象(Objective-C Associated Objects)给分类增加属性</p>
+</li>
+<li><p>方法交换 / 黑魔法(Method Swizzling)</p>
+</li>
+<li><p>实现NSCoding的自动归档和自动解档</p>
+</li>
+<li><p>实现字典和模型的自动转换(MJExtension)</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1frc63kxno9j31kw10th0b.jpg" alt="Runtime应用场景"></p>
+</li>
+</ul>
+<p><strong>1》关联对象(Objective-C Associated Objects)给分类增加属性</strong></p>
+<p>我们都是知道分类是不能自定义属性和变量的。下面通过关联对象实现给分类添加属性。</p>
+<p>关联对象Runtime提供了下面几个接口：</p>
+<pre><code class="objective-c">// 关联对象
+void objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy)
+// 获取关联的对象
+id objc_getAssociatedObject(id object, const void *key)
+// 移除关联的对象
+void objc_removeAssociatedObjects(id object)
+
+// 参数解释
+// id object：被关联的对象
+// const void *key：关联的key，要求唯一
+// id value：关联的对象
+// objc_AssociationPolicy policy：内存管理的策略</code></pre>
+<p>Demo：</p>
+<pre><code class="objective-c">///-----------------------
+/// NSObject+BRModel.h
+///-----------------------
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface NSObject (BRModel)
+/** 1.获取类的属性列表数组 */
++ (NSArray *)br_objectProperties;
+
+/** 2.字典转模型：给定一个字典，返回 self 类对应的模型对象 */
++ (instancetype)br_objectWithDictionary:(NSDictionary *)dict;
+
+@end
+
+///-----------------------
+/// NSObject+BRModel.m
+///-----------------------
+#import &quot;NSObject+BRModel.h&quot;
+#import &lt;objc/runtime.h&gt;
+
+const char *kPropertyListKey = &quot;kPropertyListKey&quot;;
+
+@implementation NSObject (BRModel)
+
+/// 所有字典转模型框架的核心算法（这里只是实现简单的字典转模型。扩展：要考虑字典的嵌套）
+/// 在字典转模型框架中，如果字典嵌套层次结构非常深，框架由于利用递归实现转换，内存消耗大，执行性能不好！
+/// YYModel 因为功能简单（在功能上做了取舍，满足大多数情况下使用），所以速度快！
+
+// 1.动态（通过Runtime形式）获取类的属性列表
++ (NSArray *)br_objectProperties {
+    /// 1.利用“关联对象”获取属性的值，如果有，直接返回！(这里获取对象类似于懒加载，只不过分类里面不能创建属性，用“关联对象”来替代)
+    /// 这里使用“关联对象”其目的是提高效率（懒加载思想）！
+    /**
+     *  获取关联对象（相当于属性的getter方法）
+     *  参数1：对象
+     *  参数2：动态添加属性的key（相当于属性名）
+     *  返回值：动态添加的“属性值”
+     */
+    NSArray *pList = objc_getAssociatedObject(self, kPropertyListKey);
+    if (pList != nil) {
+        return pList;
+    }
+
+    /**
+     *  调用运行时方法，获取类的属性列表
+     *  class_copyPropertyList():   获取类的 属性 列表方法
+     *  class_copyIvarList():       获取类的 成员变量 列表方法
+     *  class_copyMethodList():     获取类的 方法 列表方法
+     *  class_copyProtocolList():   获取类的 协议 列表方法
+     *  参数1：要获取的类
+     *  参数2：类属性的个数指针（&amp;属性个数）
+     *  返回值：所有属性的数组
+     */
+    unsigned int count = 0;
+    // 获取属性数组（这里objc_property_t接收的是数组，需要带 *）
+    objc_property_t *properties = class_copyPropertyList([self class], &amp;count);
+    NSMutableArray *propertyNameArr = [[NSMutableArray alloc]init];
+    // 遍历属性数组
+    for (unsigned int i = 0; i &lt; count; i++) {
+        // 1&gt; 获取属性(C语言中的结构体指针，通常不需要带 *)
+        objc_property_t property = properties[i];
+        // 2&gt; 从property中获取属性的名称（即C语言字符串）
+        const char *cName = property_getName(property);
+        // 将C语言字符串转成OC字符串
+        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];
+        // 3&gt; 添加OC属性名到数组
+        [propertyNameArr addObject:name];
+    }
+    // 释放数组（C语言中用到了包含create/copy/...的方法，都需要释放内存）
+    free(properties);
+
+    /**
+     *  2.利用“关联对象”保存属性的值
+     *  参数1：self 对象
+     *  参数2：动态添加属性的key（相当于属性名）
+     *  参数3：动态添加属性的值
+     *  参数4：对象的引用关系（类似于属性中的 nonatomic,assign/copy/retain）
+     */
+    objc_setAssociatedObject(self, kPropertyListKey, [propertyNameArr copy], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    return [propertyNameArr copy];
+}
+
+// 2.字典转模型：给定一个字典，返回 self 类对应的模型对象
++ (instancetype)br_objectWithDictionary:(NSDictionary *)dict {
+    id object = [[self alloc]init];
+    // 获取当前对象的属性列表
+    // 优化：使用关联对象 pList 的值保存起来，不用每次都去获取
+    NSArray *pList = [self br_objectProperties];
+    // 1&gt; 遍历属性数组
+    [pList enumerateObjectsUsingBlock:^(id  _Nonnull pName, NSUInteger idx, BOOL * _Nonnull stop) {
+        id pValue = [dict objectForKey:pName];
+        // 使用KVC给对象属性赋值
+        [object setValue:pValue forKey:pName];
+    }];
+/*
+    // 2&gt; 遍历字典
+    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull value, BOOL * _Nonnull stop) {
+        if ([pList containsObject:key]) {
+            // 使用KVC给对象属性赋值
+            [object setValue:value forKey:key];
+        }
+    }];
+*/
+    return object;
+}
+
+@end</code></pre>
+<p><strong>2》方法交换（黑魔法）</strong></p>
+<p>下面就是runtime的重头戏了，被称作黑魔法的方法交换Swizzling。交换方法是在method_exchangeImplementations里发生的。</p>
+<p>使用Swizzling的过程中要注意两个问题：</p>
+<ul>
+<li><p>Swizzling要在+load方法中执行</p>
+<blockquote>
+<p>运行时会自动调用每个类的两个方法，+load与+initialize。</p>
+<p>+load会在main函数之前调用，并且一定会调用。</p>
+<p>+initialize是在第一次调用类方法或实例方法之前被调用，有可能一直不被调用。</p>
+<p>一般使用Swizzling是为了影响全局，所以为了方法交换一定成功，Swizzling要放在+load中执行。</p>
+</blockquote>
+</li>
+<li><p>Swizzling要在dispatch_once中执行</p>
+<blockquote>
+<p>Swzzling是为了影响全局，所以只让它执行一次就可以了，所以要放在dispatch_once中。</p>
+</blockquote>
+</li>
+</ul>
+<p>Demo：</p>
+<pre><code class="objective-c">///-----------------------
+/// UIImageView+BRAdd.h
+///-----------------------
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface UIImageView (BRAdd)
+- (void)br_setImage:(UIImage *)image;
+@end
+
+///-----------------------
+/// UIImageView+BRAdd.m
+///-----------------------
+#import &quot;UIImageView+BRAdd.h&quot;
+#import &lt;objc/runtime.h&gt;
+
+@implementation UIImageView (BRAdd)
+/**
+ *  load方法 会在类第一次加载的时候（类被加载到运行时的时候）被调用
+ *  调用的时间比较靠前，适合在这个方法里做方法交换
+ */
++ (void)load {
+    // 方法交换应该被保证，在程序中只会执行一次
+    static dispatch_once_t onceToken;
+    dispatch_once(&amp;onceToken, ^{
+        // 1.获取 UIImageView 类的实例方法 setImage:
+        Method originalMethod = class_getInstanceMethod([self class], @selector(setImage:));
+        // 2.获取 UIImageView 类的实例方法 br_setImage: （这个方法本身定义在分类中，所以能获取到）
+        Method swizzledMethod = class_getInstanceMethod([self class], @selector(br_setImage:));
+        // 3.交换方法 setImage: 和 br_setImage:
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    });
+}
+
+// 当在其它位置调用 setImage: 方法时，就会自动调用 br_setImage: 方法
+- (void)br_setImage:(UIImage *)image {
+    NSLog(@&quot;%s&quot;, __FUNCTION__);
+
+    // 在这里我们可以添加自己想添加的内容...
+    // 调整图片大小：生成一张和imageView一样大的图片
+    UIImage *newImage = [self newImage:image size:self.bounds.size];
+
+    // 调用系统默认的setImage:方法
+    /**
+     *  注意：交换了方法（互换身份），这时候调用自己，看起来像是死循环，但是其实自己的实现已经被替换了
+     *  调用系统的setImage:方法时，会执行br_setImage:方法
+     *  调用br_setImage:方法时，会执行系统的setImage:方法（要注意区分！）
+     */
+    [self br_setImage:newImage];
+}
+
+// 重新生成指定大小的图片
+- (UIImage *)newImage:(UIImage *)image size:(CGSize)size {
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    // 重新绘制图片
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    // 取得结果
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 关闭上下文
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+@end
+
+
+// 扩展：方法交换还有不少应用场景，比如记录页面被点开的次数：只要在UIViewController的分类的+load中交换viewDidAppear方法，在交换的方法中添加记录代码就可以了。</code></pre>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://blog.91renb.com" target="_blank">renbo</a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20180828-mini-program-beginner-notes.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20180114-ios-runloop.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+          clientID:  '18142678935fe7020ca4',
+          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          repo: '91renb.github.io',
+          id: window.location.pathname,
+          owner: '91renb',
+          admin: '91renb',
+          distractionFreeMode: 'true',
+     })
+    gitalk.render('comments')
+</script>
+	<div id="gitalk-container"></div>	
 
+    </div>
 
 
                 </main>

@@ -41,7 +41,7 @@
     <!--Title-->
 
 
-<title>归档 | 任波的博客</title>
+<title>如何收集线上程序的bug | 任波的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
@@ -258,84 +258,135 @@ $(function() {
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-9 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年月</h1>
-        
-          <li class="post-items" _href="/p/20180828-mini-program-beginner-notes.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180828-mini-program-beginner-notes.html"> 小程序入门学习笔记 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180121-ios-runtime.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180121-ios-runtime.html"> iOS知识点-Runtime </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180114-ios-runloop.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180114-ios-runloop.html"> iOS知识点-RunLoop </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180112-collection-online-program-bug.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180112-collection-online-program-bug.html"> 如何收集线上程序的bug </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180110-ios-program-debugging.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180110-ios-program-debugging.html"> iOS程序调试 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171202-ios-interview-question-1.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171202-ios-interview-question-1.html"> iOS面试题-(1)基础篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171105-ios-core-knowledge-summary.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171105-ios-core-knowledge-summary.html"> iOS开发中常用知识点总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171005-xcode-other-linker-flags.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171005-xcode-other-linker-flags.html"> Xcode中Other Linker Flags的作用 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171004-ios-define.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171004-ios-define.html"> iOS中常见的宏 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171003-ios-calendar-date.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171003-ios-calendar-date.html"> iOS中关于日历和日期的计算 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="如何收集线上程序的bug">
+            
+	            如何收集线上程序的bug
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/ios-core/">iOS干货</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018-01-12</span>
+    </span>
+
+       
+    
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&lt;i class=&#39;fa fa-angle-right&#39;&gt;&lt;&#x2F;i&gt;</a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Q：程序上线后，如何收集错误信息？</p>
+<p>A：使用第三方框架：<code>bugly</code>（腾讯出的） 、友盟…</p>
+<ul>
+<li>用途：应用程序上架了后，也可以知道崩溃地方在哪里。</li>
+<li>查看崩溃日志（收集错误信息）是一些有经验的程序员每天必备的工作。（一般是用户量比较大的APP）</li>
+</ul>
+<h1 id="bugly的使用"><a href="#bugly的使用" class="headerlink" title="bugly的使用"></a>bugly的使用</h1><ul>
+<li><p>进入官方网站：<a href="http://bugly.qq.com" target="_blank" rel="noopener">http://bugly.qq.com</a></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzdevpqh3j30zg0kkafl.jpg" alt="官方网站"></p>
+</li>
+<li><p>登录（直接使用QQ登录），新建产品</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqzdhqzr0dj30ze0kk0uv.jpg" alt="新建产品"></p>
+</li>
+<li><p>新建产品成功后，选择你要接入的功能类型（这里我选择异常上报）</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fqzdkks3a7j30zb0kiwi5.jpg" alt="接入引导"></p>
+</li>
+<li><p>进入SDK下载页面，找到你要集成的SDK，点击使用指南，按文档说明进行接入。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqzdsms3bjj30zh0kl0y1.jpg" alt="SDK下载页面"></p>
+<p>​</p>
+</li>
+<li><p>使用CocoaPods集成：<code>pod &#39;Bugly&#39;</code></p>
+<blockquote>
+<p>初始化Bugly的方法最好放在程序启动方法的第一句位置，因为这样后面的代码就都可以监听到。</p>
+</blockquote>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fqzmqi7x2zj31090hugop.jpg" alt="Demo"></p>
+</li>
+<li><p>进入我的产品，点击设置，可获取AppID</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fqze5bmtrhj30zk0cnq54.jpg" alt="我的产品"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqze6a4304j30zd0f7jtt.jpg" alt="产品设置"></p>
+</li>
+<li><p>Command+R 运行程序</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzejkfoz6j30t70k878w.jpg" alt="运行程序"></p>
+</li>
+<li><p>程序崩溃</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzelcjx23j30tz0l0k1s.jpg" alt="程序崩溃"></p>
+</li>
+<li><p>去Bugly查看崩溃信息</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fqzewfbj00j30zj0kl78a.jpg" alt="奔溃分析"></p>
+</li>
+<li><p>点击查看列表详情</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fqzfgnug84j31kw43dhdt.jpg" alt="列表详情"></p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://blog.91renb.com" target="_blank">renbo</a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20180114-ios-runloop.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20180110-ios-program-debugging.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+          clientID:  '18142678935fe7020ca4',
+          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          repo: '91renb.github.io',
+          id: window.location.pathname,
+          owner: '91renb',
+          admin: '91renb',
+          distractionFreeMode: 'true',
+     })
+    gitalk.render('comments')
+</script>
+	<div id="gitalk-container"></div>	
 
+    </div>
 
 
                 </main>

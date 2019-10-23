@@ -41,7 +41,7 @@
     <!--Title-->
 
 
-<title>归档 | 任波的博客</title>
+<title>iOS开发中常用知识点总结 | 任波的博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
@@ -258,84 +258,248 @@ $(function() {
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-9 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">年月</h1>
-        
-          <li class="post-items" _href="/p/20180828-mini-program-beginner-notes.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180828-mini-program-beginner-notes.html"> 小程序入门学习笔记 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180121-ios-runtime.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180121-ios-runtime.html"> iOS知识点-Runtime </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180114-ios-runloop.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180114-ios-runloop.html"> iOS知识点-RunLoop </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180112-collection-online-program-bug.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180112-collection-online-program-bug.html"> 如何收集线上程序的bug </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20180110-ios-program-debugging.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20180110-ios-program-debugging.html"> iOS程序调试 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171202-ios-interview-question-1.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171202-ios-interview-question-1.html"> iOS面试题-(1)基础篇 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171105-ios-core-knowledge-summary.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171105-ios-core-knowledge-summary.html"> iOS开发中常用知识点总结 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171005-xcode-other-linker-flags.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171005-xcode-other-linker-flags.html"> Xcode中Other Linker Flags的作用 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171004-ios-define.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171004-ios-define.html"> iOS中常见的宏 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/p/20171003-ios-calendar-date.html">
-            <h3 class="post-item-title">
-            	<a href="/p/20171003-ios-calendar-date.html"> iOS中关于日历和日期的计算 </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS开发中常用知识点总结">
+            
+	            iOS开发中常用知识点总结
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/ios-core/">iOS干货</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017-11-05</span>
+    </span>
+
+       
+    
 </div>
 
-    <nav class="pagination" role="navigation">
-        <div id="page-nav">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">&lt;i class=&#39;fa fa-angle-right&#39;&gt;&lt;&#x2F;i&gt;</a>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="1-设置滑动的时候隐藏navigationBar"><a href="#1-设置滑动的时候隐藏navigationBar" class="headerlink" title="1.设置滑动的时候隐藏navigationBar"></a>1.设置滑动的时候隐藏navigationBar</h1><pre><code class="objective-c">self.navigationController.hidesBarsOnSwipe = Yes;</code></pre>
+<h1 id="2-获取UIWebView的高度"><a href="#2-获取UIWebView的高度" class="headerlink" title="2.获取UIWebView的高度"></a>2.获取UIWebView的高度</h1><pre><code class="objective-c">- (void)webViewDidFinishLoad:(UIWebView *)webView  {  
+    CGFloat height = [[webView stringByEvaluatingJavaScriptFromString:@&quot;document.body.offsetHeight&quot;] floatValue];  
+    CGRect frame = webView.frame;
+    webView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, height);  
+}</code></pre>
+<h1 id="3-带有中文的URL处理"><a href="#3-带有中文的URL处理" class="headerlink" title="3.带有中文的URL处理"></a>3.带有中文的URL处理</h1><pre><code class="objective-c">// 如：http://static.tripbe.com/videofiles/视频/我的视频.mp4
+NSString *path  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)model.mp4_url, CFSTR(&quot;&quot;), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));</code></pre>
+<h1 id="4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）"><a href="#4-调用代码使APP进入后台，达到点击Home键的效果。（私有API）" class="headerlink" title="4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）"></a>4.调用代码使APP进入后台，达到点击Home键的效果。（私有API）</h1><pre><code class="objective-c">[[UIApplication sharedApplication] performSelector:@selector(suspend)];</code></pre>
+<h1 id="5-给UIView设置图片（UILabel一样适用）"><a href="#5-给UIView设置图片（UILabel一样适用）" class="headerlink" title="5.给UIView设置图片（UILabel一样适用）"></a>5.给UIView设置图片（UILabel一样适用）</h1><ul>
+<li>第一种方法： 利用的UIView的设置背景颜色方法，用图片做图案颜色，然后传给背景颜色。</li>
+</ul>
+<pre><code class="objective-c">UIColor *bgColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@&quot;bgImg.png&quot;];
+UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+[myView setBackGroundColor:bgColor];</code></pre>
+<ul>
+<li>第二种方法：</li>
+</ul>
+<pre><code class="objective-c">UIImage *image = [UIImage imageNamed:@&quot;yourPicName@2x.png&quot;];
+yourView.layer.contents = (__bridge id)image.CGImage;
+//设置显示的图片范围
+yourView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5); //四个值在0-1之间，对应的为x，y，width，height。</code></pre>
+<h1 id="6-去掉UITableView多余的分割线"><a href="#6-去掉UITableView多余的分割线" class="headerlink" title="6.去掉UITableView多余的分割线"></a>6.去掉UITableView多余的分割线</h1><pre><code class="objective-c">self.tableView.tableFooterView = [UIView new];</code></pre>
+<h1 id="7-调整cell分割线的位置，两个方法一起用"><a href="#7-调整cell分割线的位置，两个方法一起用" class="headerlink" title="7.调整cell分割线的位置，两个方法一起用"></a>7.调整cell分割线的位置，两个方法一起用</h1><pre><code class="objective-c">-(void)viewDidLayoutSubviews {
+
+    if ([self.mytableview respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.mytableview setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+
+    }
+    if ([self.mytableview respondsToSelector:@selector(setLayoutMargins:)])  {
+        [self.mytableview setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+    }
+
+}
+
+#pragma mark - cell分割线
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]){
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+    }
+}</code></pre>
+<h1 id="8-UISearchController和UISearchBar的Cancle按钮改title问题"><a href="#8-UISearchController和UISearchBar的Cancle按钮改title问题" class="headerlink" title="8.UISearchController和UISearchBar的Cancle按钮改title问题"></a>8.UISearchController和UISearchBar的Cancle按钮改title问题</h1><pre><code class="objective-c">- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    searchController.searchBar.showsCancelButton = YES;
+    UIButton *canceLBtn = [searchController.searchBar valueForKey:@&quot;cancelButton&quot;];
+    [canceLBtn setTitle:@&quot;取消&quot; forState:UIControlStateNormal];
+    [canceLBtn setTitleColor:[UIColor colorWithRed:14.0/255.0 green:180.0/255.0 blue:0.0/255.0 alpha:1.00] forState:UIControlStateNormal];
+    searchBar.showsCancelButton = YES;
+    return YES;
+}</code></pre>
+<h1 id="9-UITableView收起键盘"><a href="#9-UITableView收起键盘" class="headerlink" title="9.UITableView收起键盘"></a>9.UITableView收起键盘</h1><pre><code class="objective-c">// 方法1：
+[self.view endEditing:YES];
+// 方法2：
+self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+/// UIScrollView同样可以使用</code></pre>
+<h1 id="10-获取今天是星期几"><a href="#10-获取今天是星期几" class="headerlink" title="10.获取今天是星期几"></a>10.获取今天是星期几</h1><pre><code class="objective-c">+ (NSString *)getWeekDayStringWithDate:(NSDate *)date {
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];     // 指定日历的算法
+    NSDateComponents *comps = [calendar components:NSWeekdayCalendarUnit fromDate:date];
+    // 1 是周日，2是周一 3.以此类推
+    NSNumber * weekNumber = @([comps weekday]);
+    NSInteger weekInt = [weekNumber integerValue];
+    NSString *weekDayString = @&quot;(周一)&quot;;
+    switch (weekInt) {
+        case 1:
+        {
+            weekDayString = @&quot;(周日)&quot;;
+        }
+            break;
+
+        case 2:
+        {
+            weekDayString = @&quot;(周一)&quot;;
+        }
+            break;
+
+        case 3:
+        {
+            weekDayString = @&quot;(周二)&quot;;
+        }
+            break;
+
+        case 4:
+        {
+            weekDayString = @&quot;(周三)&quot;;
+        }
+            break;
+
+        case 5:
+        {
+            weekDayString = @&quot;(周四)&quot;;
+        }
+            break;
+
+        case 6:
+        {
+            weekDayString = @&quot;(周五)&quot;;
+        }
+            break;
+
+        case 7:
+        {
+            weekDayString = @&quot;(周六)&quot;;
+        }
+            break;
+
+        default:
+            break;
+    }
+    return weekDayString;
+
+}</code></pre>
+<h1 id="11-UIView的部分圆角问题"><a href="#11-UIView的部分圆角问题" class="headerlink" title="11.UIView的部分圆角问题"></a>11.UIView的部分圆角问题</h1><pre><code class="objective-c">UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];
+view2.backgroundColor = [UIColor redColor];
+[self.view addSubview:view2];
+
+UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];
+CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+maskLayer.frame = view2.bounds;
+maskLayer.path = maskPath.CGPath;
+view2.layer.mask = maskLayer;
+//其中，
+byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight
+//指定了需要成为圆角的角。该参数是UIRectCorner类型的，可选的值有：
+* UIRectCornerTopLeft
+* UIRectCornerTopRight
+* UIRectCornerBottomLeft
+* UIRectCornerBottomRight
+* UIRectCornerAllCorners</code></pre>
+<h1 id="12-iOS画虚线"><a href="#12-iOS画虚线" class="headerlink" title="12.iOS画虚线"></a>12.iOS画虚线</h1><pre><code class="objective-c">// 记得先 QuartzCore框架的导入
+#import &lt;QuartzCore/QuartzCore.h&gt;
+
+CGContextRef context =UIGraphicsGetCurrentContext();  
+CGContextBeginPath(context);  
+CGContextSetLineWidth(context, 2.0);  
+CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);  
+CGFloat lengths[] = {10,10};  
+CGContextSetLineDash(context, 0, lengths,2);  
+CGContextMoveToPoint(context, 10.0, 20.0);  
+CGContextAddLineToPoint(context, 310.0,20.0);  
+CGContextStrokePath(context);  
+CGContextClosePath(context); </code></pre>
+<h1 id="13-UILabel多行显示"><a href="#13-UILabel多行显示" class="headerlink" title="13.UILabel多行显示"></a>13.UILabel多行显示</h1><pre><code class="objective-c">// 自动布局中多行UILabel，需要设置其preferredMaxLayoutWidth属性才能正常显示多行内容。另外如果出现显示不全文本，可以在计算的结果基础上＋0.5
+CGFloat h = [model.message boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - kGAP-kAvatar_Size - 2*kGAP, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.height + 0.5;</code></pre>
+<h1 id="14-禁止程序运行时自动锁屏"><a href="#14-禁止程序运行时自动锁屏" class="headerlink" title="14.禁止程序运行时自动锁屏"></a>14.禁止程序运行时自动锁屏</h1><pre><code class="objective-c">[[UIApplication sharedApplication] setIdleTimerDisabled:YES];</code></pre>
+<h1 id="15-MBProgressHUD的使用"><a href="#15-MBProgressHUD的使用" class="headerlink" title="15.MBProgressHUD的使用"></a>15.MBProgressHUD的使用</h1><pre><code class="objective-c">使用MBProgressHud时，尽量不要加到UIWindow上，加self.view上即可。如果加UIWindow上在iPad上，旋转屏幕的时候MBProgressHud不会旋转。之前有人遇到这个bug，我让他改放到self.view上即可解决此bug。</code></pre>
+<h1 id="16-强制让App直接退出（非闪退，非崩溃）"><a href="#16-强制让App直接退出（非闪退，非崩溃）" class="headerlink" title="16.强制让App直接退出（非闪退，非崩溃）"></a>16.强制让App直接退出（非闪退，非崩溃）</h1><pre><code class="objective-c">- (void)exitApplication {
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    UIWindow *window = app.window;
+    [UIView animateWithDuration:1.0f animations:^{
+        window.alpha = 0;
+    } completion:^(BOOL finished) {
+        exit(0);
+    }];
+}</code></pre>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://blog.91renb.com" target="_blank">renbo</a>
+            
         </div>
-    </nav>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20171202-ios-interview-question-1.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20171005-xcode-other-linker-flags.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+          clientID:  '18142678935fe7020ca4',
+          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          repo: '91renb.github.io',
+          id: window.location.pathname,
+          owner: '91renb',
+          admin: '91renb',
+          distractionFreeMode: 'true',
+     })
+    gitalk.render('comments')
+</script>
+	<div id="gitalk-container"></div>	
 
+    </div>
 
 
                 </main>
