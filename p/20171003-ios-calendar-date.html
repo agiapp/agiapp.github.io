@@ -13,8 +13,9 @@
     <meta name="format-detection" content="telephone=no,email=no,adress=no">
     <meta name="browsermode" content="application">
     <meta name="screen-orientation" content="portrait">
+    <meta name="referrer" content="no-referrer">
     <link rel="dns-prefetch" href="http://blog.91renb.com">
-    
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 设置代码高亮 -->
     <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
@@ -564,6 +565,16 @@ return YES;
 -->
 
 <script type="text/javascript" src="/js/high.js"></script>
+
+
+<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<script>
+  	// 给图片添加链接
+  	$("article img").each(function() {
+      	var strA = "<a data-fancybox='preview' href='" + this.src + "'></a>";
+      	$(this).wrapAll(strA);
+  	});
+</script>
 
 
 
