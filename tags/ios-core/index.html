@@ -496,16 +496,11 @@ Command+R，程序一运行就Crash！
 	<i class="fa fa-chevron-up"></i>
 </a>
 
-<!-- 分享 -->
-<!--
-
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":["mshare","tsina","weixin","sqq","fbook","mail","evernotecn","print","copy"],"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"200"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
--->
 
 <script type="text/javascript" src="/js/high.js"></script>
 
 
+<!--- fancybox --->
 <script type="text/javascript" src="/js/jquery.fancybox.js"></script>
 <script>
   	// 给图片添加链接
@@ -516,9 +511,44 @@ Command+R，程序一运行就Crash！
 </script>
 
 
-
-<!-- 在网站底部加上访问量 -->
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!---鼠标特效--->
+<script type="text/javascript">
+$(function() {
+    var a_idx = 0,
+        b_idx = 0;
+    c_idx = 0;
+    jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+            var a = new Array("欢迎您 🤗", "靓仔 😊", "真可爱", "你最美", "真聪明", "你最好", "好厉害", "棒棒哒", "祝福你"),
+                b = new Array("#e88486", "#4398fa", "#8da5d5", "#81be53", "#51a5c0", "#e19169", "#ca973d", "#eb8284", "#73c09f", "#da71b1"),
+                c = new Array("14", "15", "16", "18", "20", "22", "24");
+            var $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            b_idx = (b_idx + 1) % b.length;
+            c_idx = (c_idx + 1) % c.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "font-size": c[c_idx] + "px",
+                "color": b[b_idx]
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            }, 1500, function() {
+                $i.remove();
+            });
+        });
+    });
+    var _hmt = _hmt || [];
+})
+</script>
 
 
 
