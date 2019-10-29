@@ -463,8 +463,8 @@ $(function() {
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
         var gitalk = new Gitalk({
-          clientID:  '18142678935fe7020ca4',
-          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          clientID:  '913ac2e97903917a335a',
+          clientSecret: '21c2f5061467fb9bf7bad51df529b5d07c034a8c',
           repo: '91renb.github.io',
           id: window.location.pathname,
           owner: '91renb',
@@ -599,58 +599,13 @@ $(function() {
 </script>
 
 
-<canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
-<script type="text/javascript" src="https://cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-<script type="text/javascript" src="/js/fireworks.js"></script>
-
-
-<!---鼠标特效--->
-<script type="text/javascript">
-$(function() {
-    var a_idx = 0,
-        b_idx = 0;
-    c_idx = 0;
-    jQuery(document).ready(function($) {
-        $("body").click(function(e) {
-            var a = new Array("欢迎您 🤗", "靓仔 😊", "真可爱", "你最美", "真聪明", "你最好", "好厉害", "棒棒哒", "祝福你"),
-                b = new Array("#e88486", "#4398fa", "#8da5d5", "#81be53", "#51a5c0", "#e19169", "#ca973d", "#eb8284", "#73c09f", "#da71b1"),
-                c = new Array("14", "15", "16", "18", "20", "22", "24");
-            var $i = $("<span/>").text(a[a_idx]);
-            a_idx = (a_idx + 1) % a.length;
-            b_idx = (b_idx + 1) % b.length;
-            c_idx = (c_idx + 1) % c.length;
-            var x = e.pageX,
-                y = e.pageY;
-            $i.css({
-                "z-index": 999,
-                "top": y - 20,
-                "left": x,
-                "position": "absolute",
-                "font-weight": "bold",
-                "font-size": c[c_idx] + "px",
-                "color": b[b_idx]
-            });
-            $("body").append($i);
-            $i.animate({
-                "top": y - 180,
-                "opacity": 0
-            }, 1500, function() {
-                $i.remove();
-            });
-        });
-    });
-    var _hmt = _hmt || [];
-})
-</script>
-
-
 
 
     <div class="copyright">
     <div class="container">
         <div class="row">
             <div class="col-sm-12"> 
-                <span>Copyright &copy; 2017-2019  <a href="http://blog.91renb.com" class="copyright-links" target="_blank">任波</a></span>
+                <span>Copyright &copy; 2019  <a href="http://blog.91renb.com" class="copyright-links" target="_blank">任波</a></span>
                 <!-- | -->
                 <span>
                 	<!-- 网站访问人数 -->
@@ -671,8 +626,8 @@ $(function() {
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
         var gitalk = new Gitalk({
-          clientID:  '18142678935fe7020ca4',
-          clientSecret: '02a2ad304800383d4853fa1376579901ed23eba6',
+          clientID:  '913ac2e97903917a335a',
+          clientSecret: '21c2f5061467fb9bf7bad51df529b5d07c034a8c',
           repo: '91renb.github.io',
           id: window.location.pathname,
           owner: '91renb',
