@@ -5,9 +5,9 @@
   <subtitle>技术记录博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.91renb.com/"/>
+  <link href="https://www.irenb.com/"/>
   <updated>2019-10-29T06:29:57.490Z</updated>
-  <id>http://blog.91renb.com/</id>
+  <id>https://www.irenb.com/</id>
   
   <author>
     <name>任波</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>小程序入门学习笔记</title>
-    <link href="http://blog.91renb.com/p/20180828-mini-program-beginner-notes.html"/>
-    <id>http://blog.91renb.com/p/20180828-mini-program-beginner-notes.html</id>
+    <link href="https://www.irenb.com/p/20180828-mini-program-beginner-notes.html"/>
+    <id>https://www.irenb.com/p/20180828-mini-program-beginner-notes.html</id>
     <published>2018-08-28T06:43:05.000Z</published>
     <updated>2019-10-29T06:29:57.490Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="前端" scheme="http://blog.91renb.com/categories/web/"/>
+      <category term="前端" scheme="https://www.irenb.com/categories/web/"/>
     
     
-      <category term="小程序" scheme="http://blog.91renb.com/tags/mini-program/"/>
+      <category term="小程序" scheme="https://www.irenb.com/tags/mini-program/"/>
     
   </entry>
   
   <entry>
     <title>iOS知识点-Runtime</title>
-    <link href="http://blog.91renb.com/p/20180121-ios-runtime.html"/>
-    <id>http://blog.91renb.com/p/20180121-ios-runtime.html</id>
+    <link href="https://www.irenb.com/p/20180121-ios-runtime.html"/>
+    <id>https://www.irenb.com/p/20180121-ios-runtime.html</id>
     <published>2018-01-21T02:05:17.000Z</published>
     <updated>2019-10-29T06:29:57.495Z</updated>
     
@@ -62,17 +62,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS知识点" scheme="http://blog.91renb.com/tags/ios-knowledge-module/"/>
+      <category term="iOS知识点" scheme="https://www.irenb.com/tags/ios-knowledge-module/"/>
     
   </entry>
   
   <entry>
     <title>iOS知识点-RunLoop</title>
-    <link href="http://blog.91renb.com/p/20180114-ios-runloop.html"/>
-    <id>http://blog.91renb.com/p/20180114-ios-runloop.html</id>
+    <link href="https://www.irenb.com/p/20180114-ios-runloop.html"/>
+    <id>https://www.irenb.com/p/20180114-ios-runloop.html</id>
     <published>2018-01-14T04:40:21.000Z</published>
     <updated>2019-10-29T06:29:57.504Z</updated>
     
@@ -87,17 +87,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS知识点" scheme="http://blog.91renb.com/tags/ios-knowledge-module/"/>
+      <category term="iOS知识点" scheme="https://www.irenb.com/tags/ios-knowledge-module/"/>
     
   </entry>
   
   <entry>
     <title>如何收集线上程序的bug</title>
-    <link href="http://blog.91renb.com/p/20180112-collection-online-program-bug.html"/>
-    <id>http://blog.91renb.com/p/20180112-collection-online-program-bug.html</id>
+    <link href="https://www.irenb.com/p/20180112-collection-online-program-bug.html"/>
+    <id>https://www.irenb.com/p/20180112-collection-online-program-bug.html</id>
     <published>2018-01-12T13:22:33.000Z</published>
     <updated>2019-10-29T06:29:57.487Z</updated>
     
@@ -114,17 +114,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS干货" scheme="http://blog.91renb.com/tags/ios-core/"/>
+      <category term="iOS干货" scheme="https://www.irenb.com/tags/ios-core/"/>
     
   </entry>
   
   <entry>
     <title>iOS程序调试</title>
-    <link href="http://blog.91renb.com/p/20180110-ios-program-debugging.html"/>
-    <id>http://blog.91renb.com/p/20180110-ios-program-debugging.html</id>
+    <link href="https://www.irenb.com/p/20180110-ios-program-debugging.html"/>
+    <id>https://www.irenb.com/p/20180110-ios-program-debugging.html</id>
     <published>2018-01-10T07:14:52.000Z</published>
     <updated>2019-10-29T06:29:57.482Z</updated>
     
@@ -143,17 +143,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS干货" scheme="http://blog.91renb.com/tags/ios-core/"/>
+      <category term="iOS干货" scheme="https://www.irenb.com/tags/ios-core/"/>
     
   </entry>
   
   <entry>
     <title>iOS面试题-(1)基础篇</title>
-    <link href="http://blog.91renb.com/p/20171202-ios-interview-question-1.html"/>
-    <id>http://blog.91renb.com/p/20171202-ios-interview-question-1.html</id>
+    <link href="https://www.irenb.com/p/20171202-ios-interview-question-1.html"/>
+    <id>https://www.irenb.com/p/20171202-ios-interview-question-1.html</id>
     <published>2017-12-02T13:36:06.000Z</published>
     <updated>2019-10-29T06:29:57.485Z</updated>
     
@@ -171,17 +171,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS面试题" scheme="http://blog.91renb.com/tags/ios-interview-questions/"/>
+      <category term="iOS面试题" scheme="https://www.irenb.com/tags/ios-interview-questions/"/>
     
   </entry>
   
   <entry>
     <title>iOS开发中常用知识点总结</title>
-    <link href="http://blog.91renb.com/p/20171105-ios-core-knowledge-summary.html"/>
-    <id>http://blog.91renb.com/p/20171105-ios-core-knowledge-summary.html</id>
+    <link href="https://www.irenb.com/p/20171105-ios-core-knowledge-summary.html"/>
+    <id>https://www.irenb.com/p/20171105-ios-core-knowledge-summary.html</id>
     <published>2017-11-05T10:08:15.000Z</published>
     <updated>2019-10-29T06:29:57.500Z</updated>
     
@@ -196,17 +196,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS干货" scheme="http://blog.91renb.com/tags/ios-core/"/>
+      <category term="iOS干货" scheme="https://www.irenb.com/tags/ios-core/"/>
     
   </entry>
   
   <entry>
     <title>Xcode中Other Linker Flags的作用</title>
-    <link href="http://blog.91renb.com/p/20171005-xcode-other-linker-flags.html"/>
-    <id>http://blog.91renb.com/p/20171005-xcode-other-linker-flags.html</id>
+    <link href="https://www.irenb.com/p/20171005-xcode-other-linker-flags.html"/>
+    <id>https://www.irenb.com/p/20171005-xcode-other-linker-flags.html</id>
     <published>2017-10-05T07:38:31.000Z</published>
     <updated>2019-10-29T06:29:57.493Z</updated>
     
@@ -222,17 +222,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="iOS干货" scheme="http://blog.91renb.com/tags/ios-core/"/>
+      <category term="iOS干货" scheme="https://www.irenb.com/tags/ios-core/"/>
     
   </entry>
   
   <entry>
     <title>iOS中常见的宏</title>
-    <link href="http://blog.91renb.com/p/20171004-ios-define.html"/>
-    <id>http://blog.91renb.com/p/20171004-ios-define.html</id>
+    <link href="https://www.irenb.com/p/20171004-ios-define.html"/>
+    <id>https://www.irenb.com/p/20171004-ios-define.html</id>
     <published>2017-10-04T08:17:29.000Z</published>
     <updated>2019-10-29T06:29:57.502Z</updated>
     
@@ -250,17 +250,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="宏" scheme="http://blog.91renb.com/tags/define/"/>
+      <category term="宏" scheme="https://www.irenb.com/tags/define/"/>
     
   </entry>
   
   <entry>
     <title>iOS中关于日历和日期的计算</title>
-    <link href="http://blog.91renb.com/p/20171003-ios-calendar-date.html"/>
-    <id>http://blog.91renb.com/p/20171003-ios-calendar-date.html</id>
+    <link href="https://www.irenb.com/p/20171003-ios-calendar-date.html"/>
+    <id>https://www.irenb.com/p/20171003-ios-calendar-date.html</id>
     <published>2017-10-03T06:43:39.000Z</published>
     <updated>2019-10-29T06:29:57.505Z</updated>
     
@@ -275,17 +275,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="NSCalendar" scheme="http://blog.91renb.com/tags/nscalendar/"/>
+      <category term="NSCalendar" scheme="https://www.irenb.com/tags/nscalendar/"/>
     
   </entry>
   
   <entry>
     <title>苹果开发者账号申请流程</title>
-    <link href="http://blog.91renb.com/p/20171003-apple-developer-account-process.html"/>
-    <id>http://blog.91renb.com/p/20171003-apple-developer-account-process.html</id>
+    <link href="https://www.irenb.com/p/20171003-apple-developer-account-process.html"/>
+    <id>https://www.irenb.com/p/20171003-apple-developer-account-process.html</id>
     <published>2017-10-03T05:35:25.000Z</published>
     <updated>2019-10-29T06:29:57.497Z</updated>
     
@@ -301,17 +301,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://blog.91renb.com/categories/ios/"/>
+      <category term="iOS" scheme="https://www.irenb.com/categories/ios/"/>
     
     
-      <category term="开发者账号" scheme="http://blog.91renb.com/tags/developer-account/"/>
+      <category term="开发者账号" scheme="https://www.irenb.com/tags/developer-account/"/>
     
   </entry>
   
   <entry>
     <title>hexo+github 搭建个人技术博客</title>
-    <link href="http://blog.91renb.com/p/20171001-hexo-github-blog.html"/>
-    <id>http://blog.91renb.com/p/20171001-hexo-github-blog.html</id>
+    <link href="https://www.irenb.com/p/20171001-hexo-github-blog.html"/>
+    <id>https://www.irenb.com/p/20171001-hexo-github-blog.html</id>
     <published>2017-10-01T11:51:53.000Z</published>
     <updated>2019-10-29T06:29:57.499Z</updated>
     
@@ -326,12 +326,12 @@
     
     </summary>
     
-      <category term="其它" scheme="http://blog.91renb.com/categories/others/"/>
+      <category term="其它" scheme="https://www.irenb.com/categories/others/"/>
     
     
-      <category term="Hexo" scheme="http://blog.91renb.com/tags/hexo/"/>
+      <category term="Hexo" scheme="https://www.irenb.com/tags/hexo/"/>
     
-      <category term="Github" scheme="http://blog.91renb.com/tags/github/"/>
+      <category term="Github" scheme="https://www.irenb.com/tags/github/"/>
     
   </entry>
   
