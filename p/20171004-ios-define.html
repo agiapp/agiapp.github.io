@@ -1,0 +1,741 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="任波的博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <!-- 解决一些图床限制外链图片403不显示 -->
+    <meta name="referrer" content="no-referrer">
+    <link rel="dns-prefetch" href="https://www.irenb.com">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- 设置代码高亮 -->
+    <link rel="stylesheet" type="text/css" href="/css/highlight/xcode.css">
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    <script>
+        // highlight
+        hljs.initHighlightingOnLoad();
+    </script>
+    <!--SEO-->
+
+<meta name="description" content="嗨,欢迎访问任波的个人博客,博主目前是一位iOS开发工程师。希望通过这个技术博客,记录技术学习,总结工作经验,与大家分享交流。学习就是生产力，专注精彩，专注于分享。">
+
+
+<meta name="keywords" content="任波,个人博客,技术博客,iOS开发,前端开发,Github,博客园,简书,APP开发,专注精彩">
+
+
+<meta name="author" content="任波">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>iOS中常见的宏 | 任波的博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="任波的博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/img/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+<!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("", "");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = '0 ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+    
+    <meta name="baidu-site-verification" content="FPIfC8aCPl">
+
+    
+        <script>
+        // 百度自动推送功能(hexo博客链接自动提交/推送到百度，让百度快速收录)
+        // 自动推送很简单，就是在你代码里面嵌入自动推送JS代码，在页面被访问时，页面URL将立即被推送给百度
+        // 自动推送sitemap到百度：每次访问博客中的页面会自动向百度提交。
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+    
+
+
+    
+    <meta name="google-site-verification" content="cqaWnWf4Rtt-ABBwCZTscEqNwdfLDpBnZWo1dkYwUkM">
+
+
+    <!-- 内接入网页在线联系功能 -->
+    
+        <script>
+          (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+          daovoice('init', {
+              app_id: "0c0b639b"
+            });
+          daovoice('update');
+        </script>
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" id="high" href="javascript:shake()" ondblclick="location.reload(true)" title="一起摇摆！">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+            
+                <h2> Renbo’s Blog </h2>
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/ios/"><i class="fa fa-fw "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/web/"><i class="fa fa-fw "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/server/"><i class="fa fa-fw "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/tools/"><i class="fa fa-fw "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/others/"><i class="fa fa-fw "></i>其它</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-9 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS中常见的宏">
+            
+	            iOS中常见的宏
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/define/">宏</a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2017-10-04</span>
+    </span>
+
+       
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="自定义宏"><a href="#自定义宏" class="headerlink" title="自定义宏"></a>自定义宏</h1><ul>
+<li>处理NSLog事件(开发者模式打印,发布者模式不打印)</li>
+</ul>
+<pre><code class="objective-c">#ifdef DEBUG
+  #define NSLog(FORMAT, ...) fprintf(stderr, &quot;[%s(%d):%s]\t%s\n&quot;,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __func__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+  #define NSLog(FORMAT, ...) nil
+#endif
+</code></pre>
+<ul>
+<li>只在OC语言的情况下引用</li>
+</ul>
+<pre><code class="objective-c">// 保证 #ifdef 中的内容只会在 ObjectivObjective-C，在 C/C++ 代码中不会被引用
+#ifdef __OBJC__
+   // 定义宏或导入头文件
+#endif
+</code></pre>
+<ul>
+<li>判断当前的iPhone设备/系统版本</li>
+</ul>
+<pre><code class="objective-c">//判断是否为iPhone
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+//判断是否为iPad
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//判断是否为ipod
+#define IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@&quot;iPod touch&quot;])
+//获取系统版本
+#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+</code></pre>
+<ul>
+<li>使用 ARC 和 MRC</li>
+</ul>
+<pre><code class="objective-c">#if __has_feature(objc_arc)
+    // ARC
+#else
+    // MRC
+#endif
+</code></pre>
+<ul>
+<li>宏与const 的使用</li>
+</ul>
+<pre><code>宏的用法：一般定义代码就用宏。
+const用法：一般定义一个常量字符串就用const（如，服务器的地址）。
+static NSString * const server_host = @&quot;api.apple.com&quot;;
+</code></pre><ul>
+<li>判断当前设备是模拟器还是真机</li>
+</ul>
+<pre><code class="objective-c">#if TARGET_IPHONE_SIMULATOR  
+    // 模拟器  
+#elif TARGET_OS_IPHONE  
+    // 真机  
+#endif  
+</code></pre>
+<ul>
+<li>判断当前设备系统</li>
+</ul>
+<pre><code class="objective-c">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_8_0  
+    // 这里写设备系统大于8.0 以上的代码  
+#else  
+    // 这里写设备系统小于8.0以上的代码  
+#endif 
+
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED &lt;= __IPHONE_7_0  
+    // 这里写设备系统小于7.0以上的代码  
+#else  
+    // 这里写设备系统大于7.0以上的代码  
+#endif 
+</code></pre>
+<ul>
+<li>设置随机颜色</li>
+</ul>
+<pre><code class="objective-c">#define GRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+</code></pre>
+<ul>
+<li>静态库(.a文件)中有分类，调用分类中的方法 crash</li>
+</ul>
+<pre><code class="objective-c">/**
+    静态库中编写 Category 时的便利宏，用于解决 Category 方法从静态库中加载需要特别设置的问题。
+    加入这个宏后，不需要再在 Xcode 的 Other Liker Fliags 中设置链接库参数（-Objc / -all_load / -force_load）
+    *******************************************************************************
+    使用:在静态库中每个分类的 @implementation 前添加这个宏
+    Example:
+        #import &quot;NSString+BRAdd.h&quot;
+
+        BRSYNTH_DUMMY_CLASS(NSString_BRAdd)
+        @implementation NSString (BRAdd)
+        @end
+ */
+#ifndef BRSYNTH_DUMMY_CLASS
+
+    #define BRSYNTH_DUMMY_CLASS(_name_) \
+    @interface BRSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
+    @implementation BRSYNTH_DUMMY_CLASS_ ## _name_ @end
+
+#endif
+
+// 在ios开发过程中，有时候会用到第三方的静态库(.a文件)，OC没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，会出现selector not recognized的错误，从而导致app闪退。使用这段宏定义他可以虚拟新建一个与名字category 相同.h.m 让编译器 编译通过。即可解决上面的问题。
+</code></pre>
+<ul>
+<li>合成弱引用或者强引用。</li>
+</ul>
+<pre><code class="objective-c">/**
+ Synthesize a weak or strong reference.
+
+ Example:
+    @weakify(self)
+    [self doSomething^{
+        @strongify(self)
+        if (!self) return;
+        ...
+    }];
+
+ */
+
+#ifndef weakify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+        #endif
+    #endif
+#endif
+
+#ifndef strongify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+        #else
+        #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+        #else
+        #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+        #endif
+    #endif
+#endif
+</code></pre>
+<ul>
+<li>断言</li>
+</ul>
+<pre><code class="objective-c">// 1.NSAssert / NSCAssert 的用法（如果条件为假,就会抛出异常）
+// 前者适用于Objective-C的方法,后者适用于C的函数。
+int a = 4;  
+NSAssert(a == 5, @&quot;a must equal to 5&quot;); //第一个参数是条件,如果条件为假,就会抛出异常并打印第二个参数的内容
+// 注意：NSAssert 的定义中有self（即持有self的strong引用），在block中使用时要避免出现循环引用问题。NSCAssert 的用法与 NSAssert 一致，适用于C语言的函数，在OC中也可以使用，并且没有持有self，在block中使用不会出现循环引用问题
+
+// 2.NSParameterAssert / NSCparameterAssert 的用法(是针对参数是否存在的断言)
+// 前者适用于Objective-C的方法,后者适用于C的函数。
+- (void)assertWithPara:(NSString *)str {  
+    NSParameterAssert(str); //只需要一个参数,如果参数存在程序继续运行,如果参数为空,则程序停止并打印日志  
+    //further code ...  
+}
+
+// Xcode 已经默认将release环境下的断言取消了, 免除了忘记关闭断言造成的程序不稳定。
+
+// 常用的几个自定义断言
+#define BRAssertNil(condition, description, ...) NSAssert(!(condition), (description), ##__VA_ARGS__)
+#define BRCAssertNil(condition, description, ...) NSCAssert(!(condition), (description), ##__VA_ARGS__)
+
+#define BRAssertNotNil(condition, description, ...) NSAssert((condition), (description), ##__VA_ARGS__)
+#define BRCAssertNotNil(condition, description, ...) NSCAssert((condition), (description), ##__VA_ARGS__)
+
+#define BRAssertMainThread() NSAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)
+#define BRCAssertMainThread() NSCAssert([NSThread isMainThread], @&quot;This method must be called on the main thread&quot;)
+</code></pre>
+<h1 id="系统宏"><a href="#系统宏" class="headerlink" title="系统宏"></a>系统宏</h1><ul>
+<li>NS_AVAILABLE_IOS 与 NS_DEPRECATED_IOS</li>
+</ul>
+<pre><code class="objective-c">// 在iOS系统的API中，我们经常会看到下面的一些宏
+- (CGRect)boundingRectWithSize:(CGSize)size options:(NSStringDrawingOptions)options attributes:(nullable NSDictionary&lt;NSAttributedStringKey, id&gt; *)attributes context:(nullable NSStringDrawingContext *)context NS_AVAILABLE(10_11, 7_0);
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode NS_DEPRECATED_IOS(2_0, 7_0, &quot;Use -boundingRectWithSize:options:attributes:context:&quot;) __TVOS_PROHIBITED;
+
+/**
+    含义：(AVAILABLE：可用； DEPRECATED：弃用)
+    NS_AVAILABLE(10_11, 7_0) 表示自 Mac10.11 和 iOS7.0 引入该函数，即 iOS7之后 使用这个函数
+    NS_AVAILABEL_IOS(6_0) 表示自 iOS6.0 引入该方法，若在iOS6.0之前的版本使用该函数，则会导致 Crash；
+    NS_DEPRECATED_IOS(2_0, 7_0, &quot;替代函数&quot;)  表示该函数自 iOS2.0 引入，在 iOS7.0 被废弃。推荐 iOS7.0 之后使用替代函数。
+    NS_DEPRECATED(10_6, 10_9, 2_0, 7_0) 表示自 Mac10.6 和 iOS2.0 引入，在 Mac10.9 和 iOS7.0 被废弃
+ */
+</code></pre>
+<ul>
+<li>忽略编译器警告宏</li>
+</ul>
+<pre><code class="objective-c">// 处理编译器警告(下面 #pragma 的作用是，去掉方法的警告提示)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored &quot;-Wdeprecated-declarations&quot;
+
+CGSize size = [self sizeWithFont:font constrainedToSize:maxSize lineBreakMode:lineBreakMode];
+
+#pragma clang diagnostic pop
+</code></pre>
+<ul>
+<li>全局设置 <code>nonnull</code> 类型的宏</li>
+</ul>
+<pre><code class="objective-c">NS_ASSUME_NONNULL_BEGIN
+
+/**
+ Provides extensions for `UIBarButtonItem`.
+ */
+@interface UIBarButtonItem (YYAdd)
+
+/**
+ The block that invoked when the item is selected. The objects captured by block
+ will retained by the ButtonItem.
+
+ @discussion This param is conflict with `target` and `action` property.
+ Set this will set `target` and `action` property to some internal objects.
+ */
+@property (nullable, nonatomic, copy) void (^actionBlock)(id);
+
+@end
+
+NS_ASSUME_NONNULL_END
+</code></pre>
+<p><code>NS_ASSUME_NONNULL_BEGIN</code> 和 <code>NS_ASSUME_NONNULL_END</code> 两个宏之间的代码，所有指针对象都被假定为nonnull， 即不能为空，否则编辑器会报警告 <code>Null passed to a callee that requires a non-null argument</code>。</p>
+<blockquote>
+<p>该段代码使用了 <code>NS_ASSUME_NONNULL_BEGIN</code> , <code>NS_ASSUME_NONNULL_END</code></p>
+<p>两个宏中间包含的属性，参数值，返回值，默认是 <code>nonnull</code> 类型。</p>
+<p>如果想要某个属性，参数值或者返回值为可选类型，则单独在该属性，参数值，或者返回值前单独标明<code>nullable</code>。</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://www.irenb.com" target="_blank">renbo</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/p/20171005-xcode-other-linker-flags.html" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/p/20171003-ios-calendar-date.html" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID:  '913ac2e97903917a335a',
+    clientSecret: '21c2f5061467fb9bf7bad51df529b5d07c034a8c',
+    repo: '91renb.github.io',
+    id: window.location.pathname,
+    owner: '91renb',
+    admin: '91renb',
+    distractionFreeMode: 'true',
+  })
+  gitalk.render('comments')
+</script>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">	
+
+    </div>
+
+
+                </main>
+                
+    <aside class="col-md-3 sidebar">
+        
+        
+		
+        
+    <div class="widget notification">
+        <h3 class="title">公告</h3>
+        <div>
+            <img src="/img/qrcode.png" width=100% height=100% alt="" />
+        </div>
+    </div>
+
+		
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/91renb" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="github fa fa-github"></i>
+			    </a>
+            
+	            <a href="mailto:ios@91renb.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="//wpa.qq.com/msgrd?v=3&uin=2693475166&site=qq&menu=yes" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+		
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ios/"><i class="fa" aria-hidden="true">iOS</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/"><i class="fa" aria-hidden="true">其它</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/web/"><i class="fa" aria-hidden="true">前端</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+		
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/"><i class="fa" aria-hidden="true">2018年08月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/"><i class="fa" aria-hidden="true">2018年01月</i></a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/"><i class="fa" aria-hidden="true">2017年12月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/"><i class="fa" aria-hidden="true">2017年11月</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/"><i class="fa" aria-hidden="true">2017年10月</i></a><span class="archive-list-count">5</span></li></ul>
+    </div>
+
+
+		
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/github/" style="font-size: 10px;">Github</a> <a href="/tags/hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/nscalendar/" style="font-size: 10px;">NSCalendar</a> <a href="/tags/ios-core/" style="font-size: 20px;">iOS干货</a> <a href="/tags/ios-knowledge-module/" style="font-size: 15px;">iOS知识点</a> <a href="/tags/ios-interview-questions/" style="font-size: 10px;">iOS面试题</a> <a href="/tags/define/" style="font-size: 10px;">宏</a> <a href="/tags/mini-program/" style="font-size: 10px;">小程序</a> <a href="/tags/developer-account/" style="font-size: 10px;">开发者账号</a>
+    </div>
+  </div>
+
+
+		
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://www.irenb.com" class="fa" target="_blank">个人主页</a>
+        
+            <a href="https://www.irenb.com" class="fa" target="_blank">个人博客</a>
+        
+            <a href="http://www.cnblogs.com/bossren" class="fa" target="_blank">博客园</a>
+        
+            <a href="https://www.jianshu.com/u/3a796e0ce6a5" class="fa" target="_blank">简书主页</a>
+        
+            <a href="https://juejin.im/user/598a62bc6fb9a03c467c0182" class="fa" target="_blank">掘金主页</a>
+        
+            <div id="coding">
+                <i class="fa fa-heart"></i><p><a href="https://www.irenb.com" target="_blank" style="font-weight: bold"></a></p>
+            </div>
+        </div>
+    </div>
+
+
+		
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/high.js"></script>
+
+
+<!--- fancybox --->
+<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<script>
+  	// 给图片添加链接
+  	$("article img").each(function() {
+      	var strA = "<a data-fancybox='preview' href='" + this.src + "'></a>";
+      	$(this).wrapAll(strA);
+  	});
+</script>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="height:20px;line-height:20px;margin: 20px 0px 0px 5px; color:#939393;">Copyright &copy; 2020
+                    <a href="https://www.irenb.com" style="color:#939393;" target="_blank">任波</a> All Rights Reserved
+                </div>
+                
+                <div style="width:100%;margin:0 auto; padding:20px 0;">
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802010828" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                        <img src="/img/beian.png" style="float:left;width:16px;height:16px;"/>
+                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010802010828号</p>
+                    </a>
+                    <a href="http://www.beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">
+                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 12px; color:#939393;">浙ICP备19047372号</p>
+                    </a>
+                </div>
+
+                <span>
+                	<!-- 网站访问人数 -->
+                	<!-- <i class="fa fa-user-md"></i><span id="busuanzi_value_site_uv"></span> -->
+                	<!-- 网站访问次数 -->
+                	<!-- <i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span> -->
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
